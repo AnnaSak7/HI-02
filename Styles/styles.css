@@ -37,6 +37,7 @@ html,body {
     transition: 0.6s;
   }
   
+/*FOR LOCAL STORAGE FUNCTIONALITY*/
   .websiteBoxClass {
     height:100px;
     width:100px;
@@ -53,3 +54,4 @@ html,body {
     left:10%;
 
 }
+
