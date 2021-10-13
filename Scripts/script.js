@@ -1,6 +1,7 @@
 //ADDING VARIABLES
 var websiteDOM;
 var websiteShortName;
+var itemNr = 0;
 
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function (){
@@ -9,8 +10,8 @@ $(document).ready(function (){
 })
 
 function newWebPage() {
-    localStorage.setItem("DOM", websiteDOM.value);
-    localStorage.setItem("Shortname", websiteShortName.value);
+    localStorage.setItem("DOM" + itemNr, websiteDOM.value);
+    localStorage.setItem("Shortname" + itemNr, websiteShortName.value);
     console.log(window.localStorage);
-
+    itemNr++;
 }
