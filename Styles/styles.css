@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aqua;
+}
+
+#sun {
+  animation: spinSun 10000ms linear infinite;
+}
+
+.beam {
+  animation: scale 3s linear;
+}
+
+@keyframes spinSun {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(0.6);
+  }
+}
+
+#moon {
+  animation: partialRotate 10000ms linear infinite;
+  animation-direction: alternate;
+}
+
+.star1 {
+  animation: shine 3000ms ease-in-out infinite;
+}
+.star2 {
+  animation: shine 2000ms 1000ms infinite;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes partialRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(1.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-1.5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
