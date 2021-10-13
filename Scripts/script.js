@@ -14,4 +14,15 @@ function newWebPage() {
     localStorage.setItem("Shortname" + itemNr, websiteShortName.value);
     console.log(window.localStorage);
     itemNr++;
+    createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
+}
+
+function createNewDivWebPage(nr, dom, shnm) {
+    var $newDiv = $('<div/>').attr('id', "websiteBox" + nr);
+    $newDiv.attr("onClick", `location.href='http://${dom}'`);
+    $newDiv.attr("class", "websiteBoxClass");
+    $newDiv.text(shnm);
+    $newDiv.css({
+        'left' : '100px'
+    }).appendTo("#kroppen").html();
 }
