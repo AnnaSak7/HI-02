@@ -62,3 +62,18 @@ function loadLocalWebpage() {
     itemNr = i + 1;
   }
 }
+
+/* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
+function myFunction() {
+  document.getElementById('myDropdown').classList.toggle('show');
+}
+
+///* CLOSES THE DROPDOWN WHEN THE USER CLICKS OUTSIDE OF IT */
+/*window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+    }
+  }*/
