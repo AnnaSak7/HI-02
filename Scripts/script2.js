@@ -15,6 +15,7 @@ function toggleState() {
 $(document).ready(function () {
   setTime();
   setInterval(setTime, 1000);
+  backgroundColor();
 });
 function setTime() {
   today = new Date();
@@ -39,4 +40,51 @@ function setTime() {
   document.getElementById('date').innerHTML = time;
 }
 
-`0`;
+function backgroundColor() {
+  let hr = new Date().getHours();
+  let background = document.getElementById('kroppen');
+  switch (hr) {
+    default:
+      background.classList.toggle('stage_0');
+      break;
+
+    case 17:
+      background.classList.toggle('stage_1');
+      break;
+
+    case 18:
+      background.classList.toggle('stage_2');
+      break;
+
+    case 19:
+      background.classList.toggle('stage_3');
+      break;
+
+    case 20:
+      background.classList.toggle('stage_4');
+      break;
+
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      background.classList.toggle('stage_5');
+      break;
+    case 5:
+      background.classList.toggle('stage_4');
+      break;
+    case 6:
+      background.classList.toggle('stage_3');
+      break;
+    case 7:
+      background.classList.toggle('stage_2');
+      break;
+    case 8:
+      background.classList.toggle('stage_1');
+      break;
+  }
+}
