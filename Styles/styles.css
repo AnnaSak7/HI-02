@@ -40,7 +40,7 @@ header ul li a {
 
 .dropdown {
     float: left;
-    overflow: hidden;
+    overflow: auto;
   }
   
   .dropdown .dropbtn {
@@ -55,15 +55,21 @@ header ul li a {
     margin: 0;
   }
   
+  /*BACKGROUND COLOUR ON DROPDOWN BUTTON*/
   .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
     background-color: red;
   }
-  
+
+  /* SHOW DROPDOWN ON HOVER */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -84,6 +90,7 @@ header ul li a {
   .show {
     display: block;
   }
+  
 /*FOR LOCAL STORAGE FUNCTIONALITY*/
 .websiteBoxClass {
   height: 100px;
