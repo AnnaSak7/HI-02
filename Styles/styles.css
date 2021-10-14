@@ -52,3 +52,82 @@ header ul li a {
   top: 20%;
   left: 10%;
 }
+
+.noStars {
+  display: none;
+}
+
+.stars-inTheSky-halfopacity {
+  opacity: 0.5;
+}
+
+#stars ellipse {
+  animation: shine 4000ms ease-in-out infinite;
+}
+
+.s1 {
+  animation: shine 2000ms ease-in-out infinite;
+}
+
+.s2 {
+  animation: shine 3000ms 500ms ease-in infinite;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  75% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#moon {
+  animation: partialRotate 10000ms linear infinite;
+  animation-direction: alternate;
+}
+
+.star1 {
+  animation: shine 3000ms ease-in-out infinite;
+}
+.star2 {
+  animation: shine 2000ms 1000ms infinite;
+}
+
+@keyframes partialRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(1.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-1.5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url('../images/stars.svg');
+  z-index: -1;
+}

@@ -3,15 +3,6 @@ var changeNr = 1;
 var today;
 var time;
 
-function toggleState() {
-  document.getElementById('kroppen').classList = '';
-  document.getElementById('kroppen').classList.toggle('stage_' + stageNr);
-  stageNr += changeNr;
-  if (stageNr == 5) changeNr = -1;
-  if (stageNr == 0) changeNr = 1;
-  console.log(time);
-}
-
 $(document).ready(function () {
   setTime();
   setInterval(setTime, 1000);
@@ -43,21 +34,26 @@ function setTime() {
 function backgroundColor() {
   let hr = new Date().getHours();
   let background = document.getElementById('kroppen');
-  switch (hr) {
+  let stars = document.getElementById('stars');
+  switch (22) {
     default:
       background.classList.toggle('stage_0');
+      stars.classList.toggle('noStars');
       break;
 
     case 17:
       background.classList.toggle('stage_1');
+      stars.classList.toggle('noStars');
       break;
 
     case 18:
       background.classList.toggle('stage_2');
+      stars.classList.toggle('stars-inTheSky-halfopacity');
       break;
 
     case 19:
       background.classList.toggle('stage_3');
+      stars.classList.toggle('stars-inTheSky-halfopacity');
       break;
 
     case 20:
@@ -76,15 +72,21 @@ function backgroundColor() {
       break;
     case 5:
       background.classList.toggle('stage_4');
+      stars.classList.toggle('stars-inTheSky-halfopacity');
       break;
     case 6:
       background.classList.toggle('stage_3');
+      stars.classList.toggle('noStars');
       break;
     case 7:
       background.classList.toggle('stage_2');
+      stars.classList.toggle('noStars');
       break;
     case 8:
       background.classList.toggle('stage_1');
+      stars.classList.toggle('noStars');
       break;
   }
 }
+
+function stars() {}
