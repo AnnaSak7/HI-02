@@ -133,7 +133,7 @@ img {
 
 /* background */
 
-.wrapper {
+#wrapper {
   width: 100%;
   position: absolute;
   left: 0;
