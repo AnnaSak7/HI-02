@@ -35,7 +35,7 @@ function backgroundColor() {
   let hr = new Date().getHours();
   let background = document.getElementById('kroppen');
   let stars = document.getElementById('particles-js');
-  switch (21) {
+  switch (hr) {
     default:
       background.classList.toggle('stage_0');
       stars.classList.toggle('noStars');
