@@ -11,14 +11,14 @@ var lineHours;
 //WHEN THE PAGE IS LOADED WE RUN THIS
 $(document).ready(function () {
   //DEFINE THE SUN AND MOON IN JAVASCRIPT (TEMPORARY)
-  sunBox = document.getElementById("sunBox");
-  moonBox = document.getElementById("moonBox");
+  sunBox = document.getElementById('sunBox');
+  moonBox = document.getElementById('moonBox');
 
   //RUN THE FUNCTIONS ONCE THE PAGE IS LOADED
   setTime();
   setInterval(setTime, 1000);
   backgroundColor();
-  setSMPosition(today.getHours(),today.getMinutes());
+  setSMPosition(today.getHours(), today.getMinutes());
 });
 
 //CHANGE THE TIMER TO CURRENT TIME
@@ -26,7 +26,8 @@ function setTime() {
   today = new Date();
 
   //IF A NEW MINUTE STARTS WE CHANGE THE SUN/MOON POSITION, SENDING THE CURRENT HOURS AND MINUTES TO THE FUNCTION
-  if(today.getSeconds() == 0) setSMPosition(today.getHours(), today.getMinutes());
+  if (today.getSeconds() == 0)
+    setSMPosition(today.getHours(), today.getMinutes());
 
   //ADD A 0 TO THE CURRENT HOURS/MINUTES/SECONDS AND THEN KEEP THE LAST TWO DIGITS OF THE STRING
   let currentHours = ('0' + today.getHours()).slice(-2);
@@ -39,31 +40,30 @@ function setTime() {
 }
 
 //CHANGE THE POSITION OF THE STARS AND MOON DEPENDING ON TIME OF DAY
-function setSMPosition(hours,minutes) {
-  if(hours >= 7 && hours < 19)lineHours = hours - 7;
-  else if(hours < 7)lineHours = hours + 5;
+function setSMPosition(hours, minutes) {
+  if (hours >= 7 && hours < 19) lineHours = hours - 7;
+  else if (hours < 7) lineHours = hours + 5;
   else lineHours = hours - 19;
 
-  x_pos = ((33/4)*lineHours) + (((33/4)/60)*minutes);
+  x_pos = (33 / 4) * lineHours + (33 / 4 / 60) * minutes;
 
-  if(lineHours < 4) y_pos = 10*lineHours + ((10/60)*minutes);
+  if (lineHours < 4) y_pos = 10 * lineHours + (10 / 60) * minutes;
 
-  if(lineHours >= 4 && lineHours < 8) y_pos = 40;
+  if (lineHours >= 4 && lineHours < 8) y_pos = 40;
 
-  if(lineHours >= 8) y_pos = 40, y_pos -= ((lineHours - 8)*10) + ((10/60)*minutes); 
+  if (lineHours >= 8)
+    (y_pos = 40), (y_pos -= (lineHours - 8) * 10 + (10 / 60) * minutes);
 
-
-  if(hours >= 7 && hours < 19) {
-      sunBox.style.bottom = y_pos + 20 + "%";
-      sunBox.style.left = x_pos + "%";
-      moonBox.style.bottom = "300%";
+  if (hours >= 7 && hours < 19) {
+    sunBox.style.bottom = y_pos + 20 + '%';
+    sunBox.style.left = x_pos + '%';
+    moonBox.style.bottom = '300%';
   }
-  if(hours >= 19 && hours < 7) {
-      moonBox.style.bottom = y_pos + 20 + "%";
-      moonBox.style.left = x_pos + "%";
-      sunBox.style.bottom = "300%";
+  if (hours >= 19 && hours < 7) {
+    moonBox.style.bottom = y_pos + 20 + '%';
+    moonBox.style.left = x_pos + '%';
+    sunBox.style.bottom = '300%';
   }
-
 }
 
 //CHANGE THE BACKGROUND COLOR DEPENDING ON TIME OF DAY
@@ -73,7 +73,7 @@ function backgroundColor() {
   let stars = document.getElementById('particles-js');
 
   //CHANGE THE BACKGROUND STATE DEPENDING ON CURRENT HOUR (EACH CASE IS BASED ON HOURS)
-  switch (hr) {
+  switch (22) {
     default:
       background.classList.toggle('stage_0');
       stars.classList.toggle('noStars');
@@ -131,7 +131,7 @@ function backgroundColor() {
 particlesJS('particles-js', {
   particles: {
     number: {
-      value: 346, //この数値を変更すると星の数が増減できる
+      value: 550,
       density: {
         enable: true,
         value_area: 800,
@@ -141,19 +141,19 @@ particlesJS('particles-js', {
       value: '#ffffff',
     },
     shape: {
-      type: 'circle', //形状はcircleを指定
+      type: 'circle',
       stroke: {
         width: 0,
       },
     },
     opacity: {
-      value: 1, //シェイプの透明度
-      random: true, //シェイプの透明度をランダムにする
+      value: 1,
+      random: true,
       anim: {
-        enable: true, //シェイプの透明度をアニメーションさせる
-        speed: 3, //シェイプの透明度をアニメーションさせる
-        opacity_min: 0, //透明度の最小値０
-        sync: false, //全てを同時にアニメーションさせない
+        enable: true,
+        speed: 3,
+        opacity_min: 0,
+        sync: false,
       },
     },
     size: {
@@ -171,10 +171,10 @@ particlesJS('particles-js', {
     },
     move: {
       enable: true,
-      speed: 120, //この数値を小さくするとゆっくりな動きになる
-      direction: 'none', //方向指定なし
-      random: true, //動きはランダムに
-      straight: true, //動きをとどめる
+      speed: 120,
+      direction: 'none',
+      random: true,
+      straight: true,
       out_mode: 'out',
       bounce: false,
       attract: {

@@ -3,8 +3,6 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
-
-
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
@@ -40,7 +38,14 @@ function createNewDivWebPage(nr, dom, shnm) {
   var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
   $newDiv.attr('class', 'websiteBoxClass');
-  $newDiv.text(shnm);
+  $newDiv.prepend(`<button class="shortName">Delete</button>`);
+  $newDiv.prepend(`<span class="deleteBtn">${shnm}</span>`);
+
+  //APPEND IMG TAG TO THE DIV TAG
+  $newDiv.prepend(
+    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/>`
+  );
+
   $newDiv
     .css({
       left: 100 * itemNr + 'px',
@@ -65,6 +70,23 @@ function loadLocalWebpage() {
   }
 }
 
+let events = localStorage.getItem(`website${itemNr}`)
+  ? JSON.parse(localStorage.getItem('events'))
+  : [];
+
+function deleteIcon() {
+  events = events.filter((e) => e.date !== clicked);
+  localStorage.setItem('events', JSON.stringify(events));
+  closeModal();
+}
+
+function initButton() {
+  document
+    .getElementsByClassName('deleteBtn')
+    .addEventListener('click', deleteIcon);
+}
+
+initButton();
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
   document.getElementById('myDropdown').classList.toggle('show');
@@ -79,5 +101,3 @@ function myFunction() {
       }
     }
   }*/
-
-
