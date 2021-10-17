@@ -73,7 +73,7 @@ function backgroundColor() {
   let stars = document.getElementById('particles-js');
 
   //CHANGE THE BACKGROUND STATE DEPENDING ON CURRENT HOUR (EACH CASE IS BASED ON HOURS)
-  switch (22) {
+  switch (hr) {
     default:
       background.classList.toggle('stage_0');
       stars.classList.toggle('noStars');
@@ -101,7 +101,7 @@ function backgroundColor() {
     case 21:
     case 22:
     case 23:
-    case 24:
+    case 00:
     case 1:
     case 2:
     case 3:

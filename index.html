@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" href="Styles/styles.css" />
     <link rel="stylesheet" href="Styles/styles2.css" />
-    <script src="Scripts/script.js"></script>
 
     <title>ANIMALS</title>
   </head>
@@ -50,15 +49,260 @@
         <div id="date"></div>
       </header>
 
-      <!--FORM TO ADD NEW WEBSITE TO LOCAL STORAGE-->
-      <div id="inputBoxes">
-        <!-- Button for background color -->
-        <!-- <button onclick="toggleState()">
-          Click me to change background color
-        </button> -->
+      <div id="container">
+        <div id="clouds">
+          <div class="cloud" id="0">1</div>
+          <div class="cloud" id="1">2</div>
+          <div class="cloud" id="2">3</div>
+          <div class="cloud" id="3">4</div>
+          <div class="cloud" id="4">5</div>
+          <div class="cloud" id="5">6</div>
+          <div class="cloud" id="6">7</div>
+          <div class="cloud" id="7">8</div>
+        </div>
       </div>
 
+      <div id="newEventModal">
+        <h2>New Event</h2>
+
+        <input id="websiteInput" placeholder="Event Title" />
+        <input id="websiteShortname" placeholder="Event Title" />
+
+        <button id="saveButton">Save</button>
+        <button id="cancelButton">Cancel</button>
+      </div>
+
+      <div id="deleteEventModal">
+        <h2>Event</h2>
+
+        <p id="eventText"></p>
+
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+      </div>
+
+      <div id="modalBackDrop"></div>
+
+      <!--FORM TO ADD NEW WEBSITE TO LOCAL STORAGE-->
+      <!-- <div id="inputBoxes"> -->
+      <!-- Button for background color -->
+      <!-- <button onclick="toggleState()">
+          Click me to change background color
+        </button> -->
+      <!-- </div> -->
+
       <svg
+        id="sun"
+        id="sunBox"
+        width="300"
+        height="300"
+        viewBox="0 0 500 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          #id="sun-circle"
+          cx="249.5"
+          cy="249.5"
+          r="99.5"
+          fill="url(#paint0_radial)"
+        />
+        <path
+          d="M192.321 131.115C197.354 139.367 194.936 150.019 186.92 154.908C178.904 159.797 168.327 157.071 163.294 148.82C158.261 140.568 154.366 112.097 152.293 98.1346C160.654 104.162 187.288 122.864 192.321 131.115Z"
+          fill="url(#paint1_radial)"
+        />
+        <path
+          d="M138.438 173.636C146.321 179.227 148.31 189.967 142.879 197.626C137.448 205.284 126.654 206.961 118.77 201.37C110.886 195.779 96.0566 171.165 88.6339 159.158C98.697 161.391 130.554 168.045 138.438 173.636Z"
+          fill="url(#paint2_radial)"
+        />
+        <path
+          d="M117.5 233C127.165 233 135 240.611 135 250C135 259.389 127.165 267 117.5 267C107.835 267 81.5 255.5 68.5 250C78 246 107.835 233 117.5 233Z"
+          fill="url(#paint3_radial)"
+        />
+        <path
+          d="M128.937 303.284C136.917 297.832 147.68 299.697 152.976 307.449C158.272 315.202 156.096 325.906 148.116 331.358C140.136 336.81 111.903 342.17 98.0666 344.962C103.654 336.3 120.956 308.736 128.937 303.284Z"
+          fill="url(#paint4_radial)"
+        />
+        <path
+          d="M168.811 351.998C174.205 343.978 184.893 341.723 192.684 346.963C200.475 352.202 202.419 362.951 197.025 370.971C191.632 378.991 167.393 394.427 155.575 402.146C157.557 392.03 163.418 360.018 168.811 351.998Z"
+          fill="url(#paint5_radial)"
+        />
+        <path
+          d="M233 377.5C233 367.835 240.611 360 250 360C259.389 360 267 367.835 267 377.5C267 387.165 255.5 413.5 250 426.5C246 417 233 387.165 233 377.5Z"
+          fill="url(#paint6_radial)"
+        />
+        <path
+          d="M305.084 370.269C300.004 362.047 302.361 351.381 310.348 346.447C318.336 341.512 328.929 344.177 334.009 352.4C339.089 360.622 343.146 389.071 345.3 403.021C336.904 397.041 310.163 378.492 305.084 370.269Z"
+          fill="url(#paint7_radial)"
+        />
+        <path
+          d="M356.502 333.092C347.656 329.198 343.551 319.076 347.333 310.482C351.116 301.889 361.353 298.079 370.199 301.973C379.045 305.866 398.516 327 408.199 337.271C397.892 337.105 365.348 336.985 356.502 333.092Z"
+          fill="url(#paint8_radial)"
+        />
+        <path
+          d="M377.5 267C367.835 267 360 259.389 360 250C360 240.611 367.835 233 377.5 233C387.165 233 413.5 244.5 426.5 250C417 254 387.165 267 377.5 267Z"
+          fill="url(#paint9_radial)"
+        />
+        <path
+          d="M369.445 203.793C360.489 207.426 350.368 203.318 346.839 194.618C343.31 185.918 347.709 175.92 356.665 172.287C365.622 168.654 394.348 169.412 408.462 169.622C401.162 176.899 378.401 200.161 369.445 203.793Z"
+          fill="url(#paint10_radial)"
+        />
+        <path
+          d="M334.069 151.107C328.805 159.212 318.154 161.637 310.28 156.523C302.406 151.409 300.291 140.693 305.556 132.587C310.82 124.482 334.809 108.661 346.502 100.754C344.682 110.9 339.334 143.002 334.069 151.107Z"
+          fill="url(#paint11_radial)"
+        />
+        <path
+          d="M267 121.5C267 131.165 259.389 139 250 139C240.611 139 233 131.165 233 121.5C233 111.835 244.5 85.5 250 72.5C254 82 267 111.835 267 121.5Z"
+          fill="url(#paint12_radial)"
+        />
+        <defs>
+          <radialGradient
+            id="paint0_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(249.5 249.5) rotate(90) scale(99.5)"
+          >
+            <stop stop-color="#E4C9AF" />
+            <stop offset="1" stop-color="#E08E41" />
+          </radialGradient>
+          <radialGradient
+            id="paint1_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(169.606 126.521) rotate(58.62) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint2_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(115.756 178.392) rotate(35.3423) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint3_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(101.75 250) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint4_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(125.521 326.205) rotate(-34.3396) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint5_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(174.129 374.554) rotate(-56.0801) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint6_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(250 393.25) rotate(-90) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint7_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(327.824 374.734) rotate(-121.708) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint8_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(377.766 323.877) rotate(-156.244) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint9_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(393.25 250) rotate(-180) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint10_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(377.65 182.12) rotate(157.921) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint11_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(328.391 128.639) rotate(123.004) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+          <radialGradient
+            id="paint12_radial"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(250 105.75) rotate(90) scale(33.25 17)"
+          >
+            <stop stop-color="#FFEBD8" />
+            <stop offset="1" stop-color="#E1A974" />
+          </radialGradient>
+        </defs>
+      </svg>
+      <svg
+        id="moonBox"
         width="500"
         height="500"
         viewBox="0 0 500 500"
@@ -118,5 +362,6 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="Scripts/script2.js"></script>
+    <script src="Scripts/script.js"></script>
   </body>
 </html>

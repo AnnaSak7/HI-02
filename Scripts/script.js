@@ -12,6 +12,18 @@ $(document).ready(function () {
 
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
   loadLocalWebpage();
+
+  //randomise position of clouds
+  $('.cloud').each(function () {
+    $holder = $(this).parent();
+    $divWidth = $holder.width();
+    $divHeight = $holder.height();
+
+    $(this).css({
+      left: Math.floor(Math.random() * Number($divWidth)),
+      top: Math.floor(Math.random() * Number($divHeight)),
+    });
+  });
 });
 
 //CREATING A NEW WEBPAGE BOX AND ADDING THE WEBPAGE TO LOCAL STORAGE
@@ -32,14 +44,15 @@ function newWebPage() {
 }
 
 //CREATING NEW DIVS FOR WEBSITE LINKS, GRABBING THE SENT NUMBER ID, DOMAIN NAME AND SHORT NAME
-function createNewDivWebPage(nr, dom, shnm) {
+function createNewDivWebPage(itemNr, dom, shnm) {
   //DEFINING NEW DIV THROUGH JQUERY
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
+  var $newDiv = $('<div/>').attr('id', 'websiteBox');
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
-  $newDiv.attr('class', 'websiteBoxClass');
-  $newDiv.prepend(`<button class="shortName">Delete</button>`);
-  $newDiv.prepend(`<span class="deleteBtn">${shnm}</span>`);
+  //$newDiv.attr('class', 'websiteBoxClass');
+  $newDiv.prepend(
+    `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
+  );
 
   //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
@@ -47,11 +60,11 @@ function createNewDivWebPage(nr, dom, shnm) {
   );
 
   $newDiv
-    .css({
-      left: 100 * itemNr + 'px',
-      //ADD THE NEW DIV TO THE BODY
-    })
-    .appendTo('#kroppen')
+    // .css({
+    //   left: 100 * itemNr + 'px',
+    //   //ADD THE NEW DIV TO THE BODY
+    // })
+    .appendTo('.clouds')
     .html();
 }
 
@@ -70,23 +83,134 @@ function loadLocalWebpage() {
   }
 }
 
-let events = localStorage.getItem(`website${itemNr}`)
-  ? JSON.parse(localStorage.getItem('events'))
-  : [];
+const clouds = document.getElementsByClassName('cloud');
+console.log(clouds);
+[].forEach.call(clouds, (cloud) => {
+  cloud.addEventListener('click', (event) => {
+    console.log(event.target.id);
+    const website = JSON.parse(
+      localStorage.getItem('website' + event.target.id)
+    );
+    console.log(localStorage.getItem('website' + event.target.id));
+    console.log(website.dom);
+  });
+});
 
-function deleteIcon() {
-  events = events.filter((e) => e.date !== clicked);
-  localStorage.setItem('events', JSON.stringify(events));
-  closeModal();
-}
+//save webpage
+// let nav = 0;
+// let clicked = null;
+// let icons = localStorage.getItem(`icons`)
+//   ? JSON.parse(localStorage.getItem('icons'))
+//   : [];
 
-function initButton() {
-  document
-    .getElementsByClassName('deleteBtn')
-    .addEventListener('click', deleteIcon);
-}
+// const container = document.getElementById('clouds');
+// const websiteInput = document.getElementById('websiteInput');
+// const shortName = document.getElementById('websiteShortname');
+// const newEventModal = document.getElementById('newEventModal');
+// const deleteEventModal = document.getElementById('deleteEventModal');
+// const backDrop = document.getElementById('modalBackDrop');
 
-initButton();
+// function openModal(number) {
+//   clicked = number;
+
+//   const newWebpage = icons.find((e) => e.number === clicked);
+
+//   if (eventForDay) {
+//     document.getElementById('eventText').innerText = eventForDay.title;
+//     deleteEventModal.style.display = 'block';
+//   } else {
+//     newEventModal.style.display = 'block';
+//   }
+
+//   backDrop.style.display = 'block';
+// }
+
+// function load() {
+
+//   for (let i = 1; i <= 8; i++) {
+//     const clouds = document.createElement('div');
+//     clouds.classList.add('cloud');
+
+//     const dayString = `${month + 1}/${i - paddingDays}/${year}`;
+
+//     if (i > paddingDays) {
+//       daySquare.innerText = i - paddingDays;
+
+//       const eventForDay = events.find((e) => e.date === dayString);
+
+//       if (i - paddingDays === day && nav === 0) {
+//         daySquare.id = 'currentDay';
+//       }
+
+//       if (eventForDay) {
+//         const eventDiv = document.createElement('div');
+//         eventDiv.classList.add('event');
+//         eventDiv.innerText = eventForDay.title;
+//         daySquare.appendChild(eventDiv);
+//       }
+
+//       daySquare.addEventListener('click', () => openModal(dayString));
+//     } else {
+//       daySquare.classList.add('padding');
+//     }
+//     calendar.appendChild(daySquare);
+//   }
+// }
+
+// // const clickClouds = document.querySelectorAll('cloud');
+// // const newEventModal = document.querySelector('newEventModal');
+
+// // clickClouds.addEventListener('click', () => {
+// //   newEventModal.classList.toggle('change');
+// // });
+
+// function closeModal() {
+//   websiteInput.classList.remove('error');
+//   newEventModal.style.display = 'none';
+//   deleteEventModal.style.display = 'none';
+//   backDrop.style.display = 'none';
+//   websiteInput.value = '';
+//   clicked = null;
+// }
+
+// function saveWebPage() {
+//   if (websiteInput.value) {
+//     websiteInput.classList.remove('error');
+
+//     icons.push({
+//       number: clicked,
+//       website: websiteInput.value,
+//       shortName: shortName.value,
+//     });
+
+//     localStorage.setItem('events', JSON.stringify(icons));
+//     closeModal();
+//   } else {
+//     websiteInput.classList.add('error');
+//   }
+// }
+
+// // delete icons
+
+// function deleteIcon() {
+//   icons = icons.filter((i) => i.number !== clicked);
+//   localStorage.setItem('events', JSON.stringify(events));
+//   closeModal();
+// }
+
+// function initButton() {
+//   document.getElementById('saveButton').addEventListener('click', saveEvent);
+
+//   document.getElementById('cancelButton').addEventListener('click', closeModal);
+
+//   document
+//     .getElementsByClassName('deleteBtn')
+//     .addEventListener('click', deleteIcon);
+
+//   document.getElementById('closeButton').addEventListener('click', closeModal);
+// }
+
+// initButton();
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
   document.getElementById('myDropdown').classList.toggle('show');
