@@ -5,13 +5,13 @@ var itemNr = 0;
 
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
-  //ADDING THE INPUT BOXES TO JAVASCRIPT
-  websiteDOM = document.getElementById('websiteDOM');
-  websiteShortName = document.getElementById('websiteShortname');
-  console.log(window.localStorage.getItem('DOM0'));
+  // //ADDING THE INPUT BOXES TO JAVASCRIPT
+  // websiteDOM = document.getElementById('websiteDOM');
+  // websiteShortName = document.getElementById('websiteShortname');
+  // console.log(window.localStorage.getItem('DOM0'));
 
-  //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
-  loadLocalWebpage();
+  // // RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
+  // loadLocalWebpage();
 
   //randomise position of clouds
   $('.cloud').each(function () {
@@ -27,170 +27,229 @@ $(document).ready(function () {
 });
 
 //CREATING A NEW WEBPAGE BOX AND ADDING THE WEBPAGE TO LOCAL STORAGE
-function newWebPage() {
-  //CREATING AN OBJECT WITH THE WEBSITE DOMAIN NAME(dom, ex: youtube.com) AND WHAT WE WANT THE SHORT NAME TO BE(shortname, ex: youtube)
-  var website = {
-    dom: websiteDOM.value,
-    shortname: websiteShortName.value,
-  };
-  //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
-  localStorage.setItem('website' + itemNr, JSON.stringify(website));
+// function newWebPage() {
+//   //CREATING AN OBJECT WITH THE WEBSITE DOMAIN NAME(dom, ex: youtube.com) AND WHAT WE WANT THE SHORT NAME TO BE(shortname, ex: youtube)
+//   let website = {
+//     dom: websiteDOM.value,
+//     shortname: websiteShortName.value,
+//   };
+//   //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
+//   localStorage.setItem('website' + itemNr, JSON.stringify(website));
 
-  //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
-  createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
+//   //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
+//   createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
 
-  //MAKING SURE THAT THE LOCAL STORAGE ARRAY DOESNT OVERWRITE ANY PREVIOUS ITEMS IN THE ARRAY
-  itemNr++;
+//   //MAKING SURE THAT THE LOCAL STORAGE ARRAY DOESNT OVERWRITE ANY PREVIOUS ITEMS IN THE ARRAY
+//   itemNr++;
+// }
+
+// //CREATING NEW DIVS FOR WEBSITE LINKS, GRABBING THE SENT NUMBER ID, DOMAIN NAME AND SHORT NAME
+// function createNewDivWebPage(itemNr, dom, shnm) {
+//   //DEFINING NEW DIV THROUGH JQUERY
+//   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
+//   let $newDiv = $('<div/>').attr('id', 'websiteBox');
+//   $newDiv.attr('onClick', `location.href='http://${dom}'`);
+//   //$newDiv.attr('class', 'websiteBoxClass');
+//   $newDiv.prepend(
+//     `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
+//   );
+
+//   //APPEND IMG TAG TO THE DIV TAG
+//   $newDiv.prepend(
+//     `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/>`
+//   );
+
+//   $newDiv
+//     // .css({
+//     //   left: 100 * itemNr + 'px',
+//     //   //ADD THE NEW DIV TO THE BODY
+//     // })
+//     .appendTo('.clouds')
+//     .html();
+// }
+
+let clicked = null;
+const newEventModal = document.getElementById('newEventModal');
+const backDrop = document.getElementById('modalBackDrop');
+const cloudsContainer = document.getElementById('clouds');
+const cloud = document.getElementById('cloud');
+
+// [].forEach.call(clouds, (cloud) => {
+//   cloud.addEventListener('click', openModal);
+// });
+
+let website = localStorage.getItem(`website`)
+  ? JSON.parse(localStorage.getItem('website'))
+  : [];
+
+const websiteInput = document.getElementById('websiteInput');
+const websiteShortname = document.getElementById('websiteShortname');
+///console.log('websiteShortname', websiteShortname);
+const cloudClasses = document.getElementsByClassName('cloud');
+///console.log('cloudClasses', cloudClasses);
+
+function getID(e) {
+  let element = e.target || e,
+    srcElement;
+  console.log(element.id);
 }
 
-//CREATING NEW DIVS FOR WEBSITE LINKS, GRABBING THE SENT NUMBER ID, DOMAIN NAME AND SHORT NAME
-function createNewDivWebPage(itemNr, dom, shnm) {
-  //DEFINING NEW DIV THROUGH JQUERY
-  //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>').attr('id', 'websiteBox');
-  $newDiv.attr('onClick', `location.href='http://${dom}'`);
-  //$newDiv.attr('class', 'websiteBoxClass');
-  $newDiv.prepend(
-    `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
-  );
-
-  //APPEND IMG TAG TO THE DIV TAG
-  $newDiv.prepend(
-    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/>`
-  );
-
-  $newDiv
-    // .css({
-    //   left: 100 * itemNr + 'px',
-    //   //ADD THE NEW DIV TO THE BODY
-    // })
-    .appendTo('.clouds')
-    .html();
+function openModal(event) {
+  //clicked = element.id;
+  newEventModal.style.display = 'block';
+  backDrop.style.display = 'block';
 }
 
-//LOAD ALL THE PAGES SAVED IN LOCAL STORAGE
-function loadLocalWebpage() {
-  //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
-  for (var i = 0; i < localStorage.length; i++) {
-    //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
-    var divAttr = JSON.parse(window.localStorage.getItem('website' + i));
+function clickedElementID(id) {
+  document.getElementById(id);
+  console.log(id.id);
+}
 
-    //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
-    createNewDivWebPage(i, divAttr.dom, divAttr.shortname);
+function load() {
+  cloudsContainer.innerHTML = '';
 
-    //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
-    itemNr = i + 1;
+  //create clouds
+  for (let i = 0; i <= 7; i++) {
+    const cloud = document.createElement('div');
+    cloud.classList.add('cloud');
+    cloud.id = i;
+    cloud.setAttribute('onClick', '');
+
+    const idNumber = cloud.addEventListener('click', () => openModal(cloud));
+    // const clickedCloud = website.find((e)
+    // // const iconNumber = website.find(e => e. === )
+
+    if (website) {
+      const favicon = document.createElement('img');
+      favicon.src = `http://www.google.com/s2/favicons?domain=${website.dom}`;
+      cloud.appendChild(favicon);
+      const shortN = document.createElement('p');
+      if (website.shortname === undefined) {
+        shortN.innerHTML = '';
+      } else {
+        shortN.innerText = website.shortname;
+      }
+      cloud.appendChild(shortN);
+    }
+    cloudsContainer.appendChild(cloud);
+    // if (!website) {
+    //   //todo: create popup to insert new website
+    //   /////console.log('undefined!!!!!');
+    //   //todo: show modal
+
+    //   newEventModal.style.display = 'block';
+    //   backDrop.style.display = 'block';
+    //   saveWebPage();
+    // } else {
+    //   //to show the website that's already exist
+    //   let img = document.createElement('img');
+    //   img.src = `http://www.google.com/s2/favicons?domain=${website.dom}`;
+    //   event.target.appendChild(img);
+    // }
   }
 }
 
-const clouds = document.getElementsByClassName('cloud');
-console.log(clouds);
-[].forEach.call(clouds, (cloud) => {
-  cloud.addEventListener('click', (event) => {
-    console.log(event.target.id);
-    const website = JSON.parse(
-      localStorage.getItem('website' + event.target.id)
-    );
-    console.log(localStorage.getItem('website' + event.target.id));
-    console.log(website.dom);
-  });
-});
+// // //LOAD ALL THE PAGES SAVED IN LOCAL STORAGE
+// function loadLocalWebpage() {
+//   //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
+//   for (var i = 0; i < classes.length; i++) {
+//     //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
+//     var divAttr = JSON.parse(window.localStorage.getItem('website' + i));
 
-//save webpage
-// let nav = 0;
-// let clicked = null;
-// let icons = localStorage.getItem(`icons`)
-//   ? JSON.parse(localStorage.getItem('icons'))
-//   : [];
+//     //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
+//     createNewDivWebPage(i, divAttr.dom, divAttr.shortname);
 
-// const container = document.getElementById('clouds');
-// const websiteInput = document.getElementById('websiteInput');
-// const shortName = document.getElementById('websiteShortname');
-// const newEventModal = document.getElementById('newEventModal');
-// const deleteEventModal = document.getElementById('deleteEventModal');
-// const backDrop = document.getElementById('modalBackDrop');
-
-// function openModal(number) {
-//   clicked = number;
-
-//   const newWebpage = icons.find((e) => e.number === clicked);
-
-//   if (eventForDay) {
-//     document.getElementById('eventText').innerText = eventForDay.title;
-//     deleteEventModal.style.display = 'block';
-//   } else {
-//     newEventModal.style.display = 'block';
-//   }
-
-//   backDrop.style.display = 'block';
-// }
-
-// function load() {
-
-//   for (let i = 1; i <= 8; i++) {
-//     const clouds = document.createElement('div');
-//     clouds.classList.add('cloud');
-
-//     const dayString = `${month + 1}/${i - paddingDays}/${year}`;
-
-//     if (i > paddingDays) {
-//       daySquare.innerText = i - paddingDays;
-
-//       const eventForDay = events.find((e) => e.date === dayString);
-
-//       if (i - paddingDays === day && nav === 0) {
-//         daySquare.id = 'currentDay';
-//       }
-
-//       if (eventForDay) {
-//         const eventDiv = document.createElement('div');
-//         eventDiv.classList.add('event');
-//         eventDiv.innerText = eventForDay.title;
-//         daySquare.appendChild(eventDiv);
-//       }
-
-//       daySquare.addEventListener('click', () => openModal(dayString));
-//     } else {
-//       daySquare.classList.add('padding');
-//     }
-//     calendar.appendChild(daySquare);
+//     //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
+//     itemNr = i + 1;
 //   }
 // }
 
-// // const clickClouds = document.querySelectorAll('cloud');
-// // const newEventModal = document.querySelector('newEventModal');
+// function openModal(cloud) {
+//   clicked = cloud;
 
-// // clickClouds.addEventListener('click', () => {
-// //   newEventModal.classList.toggle('change');
-// // });
-
-// function closeModal() {
-//   websiteInput.classList.remove('error');
-//   newEventModal.style.display = 'none';
-//   deleteEventModal.style.display = 'none';
-//   backDrop.style.display = 'none';
-//   websiteInput.value = '';
-//   clicked = null;
+//   const iconForCloud = website.find(w => w.)
 // }
 
-// function saveWebPage() {
-//   if (websiteInput.value) {
-//     websiteInput.classList.remove('error');
+//when clicked a cloud
+function createPopup(event) {
+  //console.log(event.target.id);
+  const website = JSON.parse(localStorage.getItem('website' + event.target.id));
+  console.log(localStorage.getItem('website' + event.target.id));
+  //console.log(website.dom);
+  if (!website) {
+    //todo: create popup to insert new website
+    /////console.log('undefined!!!!!');
+    //todo: show modal
 
-//     icons.push({
-//       number: clicked,
-//       website: websiteInput.value,
-//       shortName: shortName.value,
-//     });
+    newEventModal.style.display = 'block';
+    backDrop.style.display = 'block';
+    saveWebPage();
+  } else {
+    //to show the website that's already exist
+    let img = document.createElement('img');
+    img.src = `http://www.google.com/s2/favicons?domain=${website.dom}`;
+    event.target.appendChild(img);
+  }
+}
 
-//     localStorage.setItem('events', JSON.stringify(icons));
-//     closeModal();
-//   } else {
-//     websiteInput.classList.add('error');
-//   }
-// }
+function closeModal() {
+  websiteInput.classList.remove('error');
+  websiteShortname.classList.remove('error');
+  newEventModal.style.display = 'none';
+  deleteEventModal.style.display = 'none';
+  backDrop.style.display = 'none';
+  websiteInput.value = '';
+  websiteShortname.value = '';
+  //clicked = null;
+}
 
-// // delete icons
+function saveWebPage() {
+  // console.log('websiteInput.value', websiteInput.value);
+  // console.log('websiteShortname', websiteShortname);
+  // console.log('websiteShortname.value', websiteShortname.value);
+  // let clickedCloud = document.addEventListener('click', (e) => {
+  //   alert(e.target.id);
+  // });
+  // console.log('clicked', itemNr);
+  //CREATING AN OBJECT WITH THE WEBSITE DOMAIN NAME(dom, ex: youtube.com) AND WHAT WE WANT THE SHORT NAME TO BE(shortname, ex: youtube)
+  if (websiteInput.value !== '' && websiteShortname.value !== '') {
+    //console.log('hehey');
+    websiteInput.classList.remove('error');
+    website.push({
+      // id: ,
+      dom: websiteInput.value,
+      shortname: websiteShortname.value,
+    });
+    //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
+    localStorage.setItem('website', JSON.stringify(website));
+
+    // createNewDivWebPage(itemNr, websiteInput.value, websiteShortname.value);
+    // itemNr++;
+    closeModal();
+  } else {
+    websiteInput.classList.add('error');
+  }
+}
+
+function deleteIcon() {
+  icons = icons.filter((i) => i.number !== clicked);
+  localStorage.setItem('events', JSON.stringify(events));
+  closeModal();
+}
+function initBtn() {
+  document.getElementById('saveButton').addEventListener('click', saveWebPage);
+
+  document.getElementById('cancelButton').addEventListener('click', closeModal);
+
+  // document
+  //   .getElementsByClassName('deleteBtn')
+  //   .addEventListener('click', deleteIcon);
+
+  document.getElementById('closeButton').addEventListener('click', closeModal);
+}
+
+initBtn();
+load();
 
 // function deleteIcon() {
 //   icons = icons.filter((i) => i.number !== clicked);
@@ -198,19 +257,6 @@ console.log(clouds);
 //   closeModal();
 // }
 
-// function initButton() {
-//   document.getElementById('saveButton').addEventListener('click', saveEvent);
-
-//   document.getElementById('cancelButton').addEventListener('click', closeModal);
-
-//   document
-//     .getElementsByClassName('deleteBtn')
-//     .addEventListener('click', deleteIcon);
-
-//   document.getElementById('closeButton').addEventListener('click', closeModal);
-// }
-
-// initButton();
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
   document.getElementById('myDropdown').classList.toggle('show');

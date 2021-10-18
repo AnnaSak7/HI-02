@@ -16,7 +16,7 @@
 
     <title>ANIMALS</title>
   </head>
-  <body id="kroppen">
+  <body id="kroppen" onclick="getID(event);">
     <div id="particles-js"></div>
     <div id="wrapper">
       <header>
@@ -35,13 +35,13 @@
             <div class="dropdown">
               <button class="dropbtn" onclick="myFunction()">DROPDOWN</button>
               <div class="dropdown-content" id="myDropdown">
-                <li>
+                <!-- <li>
                   DOM:<input id="websiteDOM" /> SHORT NAME:<input
                     id="websiteShortname"
                   />
                   <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
                   <a href="#">Link 2</a>
-                </li>
+                </li> -->
               </div>
             </div>
           </ul>
@@ -51,22 +51,22 @@
 
       <div id="container">
         <div id="clouds">
-          <div class="cloud" id="0">1</div>
-          <div class="cloud" id="1">2</div>
-          <div class="cloud" id="2">3</div>
-          <div class="cloud" id="3">4</div>
-          <div class="cloud" id="4">5</div>
-          <div class="cloud" id="5">6</div>
-          <div class="cloud" id="6">7</div>
-          <div class="cloud" id="7">8</div>
+          <!-- <div class="cloud" id="0"></div>
+          <div class="cloud" id="1"></div>
+          <div class="cloud" id="2"></div>
+          <div class="cloud" id="3"></div>
+          <div class="cloud" id="4"></div>
+          <div class="cloud" id="5"></div>
+          <div class="cloud" id="6"></div>
+          <div class="cloud" id="7"></div> -->
         </div>
       </div>
 
       <div id="newEventModal">
         <h2>New Event</h2>
 
-        <input id="websiteInput" placeholder="Event Title" />
-        <input id="websiteShortname" placeholder="Event Title" />
+        <input id="websiteInput" placeholder="Website address" />
+        <input id="websiteShortname" placeholder="Name for website" />
 
         <button id="saveButton">Save</button>
         <button id="cancelButton">Cancel</button>
@@ -84,12 +84,7 @@
       <div id="modalBackDrop"></div>
 
       <!--FORM TO ADD NEW WEBSITE TO LOCAL STORAGE-->
-      <!-- <div id="inputBoxes"> -->
-      <!-- Button for background color -->
-      <!-- <button onclick="toggleState()">
-          Click me to change background color
-        </button> -->
-      <!-- </div> -->
+      <!-- <div id="inputBoxes"></div> -->
 
       <svg
         id="sun"
@@ -352,7 +347,7 @@
         />
       </svg>
 
-      <div id="ground">
+      <div id="ground" onclick="clickedElementID(this)">
         <img src="./images/background_transparent.svg" alt="ground-image" />
       </div>
     </div>

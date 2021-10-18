@@ -105,13 +105,12 @@ header ul li a {
   position: absolute;
   top: 30%;
 }
-/* #inputBoxes {
+#inputBoxes {
   height: 30%;
   width: 100%;
   position: relative;
   top: 20%;
-
-} */
+}
 
 /*  */
 #container {
@@ -138,7 +137,7 @@ header ul li a {
   background-repeat: none;
   width: 100px;
   height: 70px;
-  z-index: 20;
+  z-index: 101;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -157,10 +156,7 @@ header ul li a {
 #newEventModal,
 #deleteEventModal {
   display: none;
-}
-
-#change {
-  z-index: 20;
+  z-index: 102;
   padding: 25px;
   background-color: #e8f4fa;
   box-shadow: 0px 0px 3px black;
