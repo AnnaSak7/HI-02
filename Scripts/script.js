@@ -3,14 +3,12 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
-
-
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
-  websiteDOM = document.getElementById('websiteDOM');
-  websiteShortName = document.getElementById('websiteShortname');
-  console.log(window.localStorage.getItem('DOM0'));
+  websiteDOM = document.getElementById("websiteDOM");
+  websiteShortName = document.getElementById("websiteShortname");
+  console.log(window.localStorage.getItem("DOM0"));
 
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
   loadLocalWebpage();
@@ -24,7 +22,7 @@ function newWebPage() {
     shortname: websiteShortName.value,
   };
   //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
-  localStorage.setItem('website' + itemNr, JSON.stringify(website));
+  localStorage.setItem("website" + itemNr, JSON.stringify(website));
 
   //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
   createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
@@ -37,9 +35,9 @@ function newWebPage() {
 function createNewDivWebPage(nr, dom, shnm) {
   //DEFINING NEW DIV THROUGH JQUERY
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
-  $newDiv.attr('onClick', `location.href='http://${dom}'`);
-  $newDiv.attr('class', 'websiteBoxClass');
+  var $newDiv = $("<div/>").attr("id", "websiteBox" + nr);
+  $newDiv.attr("onClick", `location.href='http://${dom}'`);
+  $newDiv.attr("class", "websiteBoxClass");
   //$newDiv.text(shnm);
 
   // $newDiv.prepend(
@@ -52,10 +50,10 @@ function createNewDivWebPage(nr, dom, shnm) {
 
   $newDiv
     .css({
-      left: 100 * itemNr + 'px',
+      left: 100 * itemNr + "px",
       //ADD THE NEW DIV TO THE BODY
     })
-    .appendTo('#kroppen')
+    .appendTo("#kroppen")
     .html();
 }
 
@@ -64,7 +62,7 @@ function loadLocalWebpage() {
   //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
   for (var i = 0; i < localStorage.length; i++) {
     //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
-    var divAttr = JSON.parse(window.localStorage.getItem('website' + i));
+    var divAttr = JSON.parse(window.localStorage.getItem("website" + i));
 
     //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
     createNewDivWebPage(i, divAttr.dom, divAttr.shortname);
@@ -74,15 +72,13 @@ function loadLocalWebpage() {
   }
 }
 
-
-
-function deleteIcon() {
+/*function deleteIcon() {
   localStorage.removeItem(“website”+);
-}
+}*/
 
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
-  document.getElementById('myDropdown').classList.toggle('show');
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 ///* CLOSES THE DROPDOWN WHEN THE USER CLICKS OUTSIDE OF IT */
@@ -94,5 +90,3 @@ function myFunction() {
       }
     }
   }*/
-
-
