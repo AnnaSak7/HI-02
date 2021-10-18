@@ -3,6 +3,8 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
+
+
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
@@ -48,6 +50,7 @@ function createNewDivWebPage(nr, dom, shnm) {
     `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/><div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
   );
 
+  $newDiv.text(shnm);
   $newDiv
     .css({
       left: 100 * itemNr + 'px',
@@ -92,3 +95,5 @@ function myFunction() {
       }
     }
   }*/
+
+

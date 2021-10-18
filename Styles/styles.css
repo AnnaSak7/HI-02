@@ -128,7 +128,7 @@ header ul li a {
   width: 100%;
   height: auto;
   z-index: 5;
-  bottom: -15%;
+  bottom:-1%;
   left: 0%;
 }
 
@@ -193,11 +193,6 @@ img {
   }
 }
 
-/* sun */
-#sun {
-  animation: spinSun 10000ms linear infinite;
-}
-
 .beam {
   animation: scale 3s linear;
 }
@@ -224,12 +219,7 @@ img {
   }
 }
 
-/* moon */
-#moon {
-  z-index: 2;
-  animation: partialRotate 10000ms linear infinite;
-  animation-direction: alternate;
-}
+
 
 .star1 {
   animation: shine 3000ms ease-in-out infinite;
@@ -259,18 +249,29 @@ img {
 }
 
 /*TEMPORARY SUN/MOON*/
-#sunBox {
-  height: 10%;
-  width: 10%;
-  position: absolute;
-  background: red;
-  z-index: 100;
+#sunContainer {
+    height:20%;
+    width:20%;
+    transform:translate(-50%,0);
+    position:absolute;
+    z-index:100;
 }
+    #sunBox {
+        height: 100%;
+        width: 100%;
+        animation: spinSun 10000ms linear infinite;
+    }
 
-#moonBox {
-  height: 10%;
-  width: 10%;
-  position: absolute;
-  background: blue;
-  z-index: 100;
+#moonContainer {
+    height: 30%;
+    width: 30%;
+    transform:translate(-50%,12%);
+    position: absolute;
+    z-index: 100;
 }
+    #moonBox {
+        height:100%;
+        width:100%;
+        animation: partialRotate 10000ms linear infinite;
+        animation-direction: alternate;
+    }
