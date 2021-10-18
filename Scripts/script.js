@@ -4,7 +4,6 @@ var websiteShortName;
 var itemNr = 0;
 
 
-
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
