@@ -11,8 +11,8 @@ var lineHours;
 //WHEN THE PAGE IS LOADED WE RUN THIS
 $(document).ready(function () {
   //DEFINE THE SUN AND MOON IN JAVASCRIPT (TEMPORARY)
-  sunBox = document.getElementById("sunBox");
-  moonBox = document.getElementById("moonBox");
+  sunBox = document.getElementById("sunContainer");
+  moonBox = document.getElementById("moonContainer");
 
   //RUN THE FUNCTIONS ONCE THE PAGE IS LOADED
   setTime();

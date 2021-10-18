@@ -3,6 +3,8 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
+
+
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
@@ -39,12 +41,6 @@ function createNewDivWebPage(nr, dom, shnm) {
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
   $newDiv.attr('class', 'websiteBoxClass');
   $newDiv.text(shnm);
-
-  //   //APPEND IMG TAG TO THE DIV TAG
-  $newDiv.prepend(
-    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/>`
-  );
-
   $newDiv
     .css({
       left: 100 * itemNr + 'px',
@@ -83,3 +79,5 @@ function myFunction() {
       }
     }
   }*/
+
+
