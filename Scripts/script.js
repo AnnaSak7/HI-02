@@ -38,11 +38,14 @@ function createNewDivWebPage(nr, dom, shnm) {
   var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
   $newDiv.attr('class', 'websiteBoxClass');
-  $newDiv.text(shnm);
+  //$newDiv.text(shnm);
+
+  // $newDiv.prepend(
+  //       `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
 
   //   //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
-    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/>`
+    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/><div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
   );
 
   $newDiv
@@ -67,6 +70,12 @@ function loadLocalWebpage() {
     //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
     itemNr = i + 1;
   }
+}
+
+
+
+function deleteIcon() {
+  localStorage.removeItem(“website”+);
 }
 
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
