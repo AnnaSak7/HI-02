@@ -105,6 +105,18 @@ header ul li a {
   position: absolute;
   top: 30%;
 }
+.shortNameBox {
+  height:25%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  text-align: center;
+}
+.deleteBtn {
+  position:absolute;
+  top:0;
+  right:0;
+}
 #inputBoxes {
   height: 30%;
   width: 100%;
