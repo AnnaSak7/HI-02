@@ -38,25 +38,23 @@ function createNewDivWebPage(nr, dom, shnm) {
   var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
   $newDiv.attr('class', 'websiteBoxClass');
-  //$newDiv.text(shnm);
 
-  // $newDiv.prepend(
-  //       `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
-
-  //   //APPEND IMG TAG TO THE DIV TAG
+  //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
     `<button class="deleteBtn" onclick="deleteIcons(${nr})">X</button>
-    <img src="http://www.google.com/s2/favicons?domain=${dom}"
-    alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:30%;width:30%;"/>
-    <div class="shortNameBox">${shnm}</div>`
+        <div class="faviBox">
+            <img src="http://www.google.com/s2/favicons?domain=${dom}"
+            alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:50%;width:50%;"/>
+        </div>
+        <div class="shortNameBox">${shnm}</div>`
   );
 
   $newDiv
     .css({
-      left: 100 * itemNr + 'px',
+      /*left: 25 + (125 * itemNr) + 'px',*/
       //ADD THE NEW DIV TO THE BODY
     })
-    .appendTo('#kroppen')
+    .appendTo('#favWebBox')
     .html();
 }
 

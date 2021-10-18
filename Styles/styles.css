@@ -1,3 +1,8 @@
+@font-face {
+  font-family: coolFont;
+  src: url("../fonts/Halloween\ Night.otf");
+}
+
 html,
 body {
   width: 100%;
@@ -96,26 +101,56 @@ header ul li a {
 }
 
 /*FOR LOCAL STORAGE FUNCTIONALITY*/
-.websiteBoxClass {
-  height: 100px;
-  width: 100px;
-  background: blue;
-  color: white;
-  position: absolute;
-  top: 30%;
-}
-.shortNameBox {
-  height:25%;
+#favWebBox {
+  height:15%;
   width:100%;
   position:absolute;
-  bottom:0;
+  top:50%;
   text-align: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+  
 }
-.deleteBtn {
-  position:absolute;
-  top:0;
-  right:0;
-}
+  .websiteBoxClass {
+    height: 100px;
+    width: 100px;
+    color: white;
+    position:relative;
+    margin-left:2%;
+    margin-right:2%;
+    z-index:99;
+    background:rgba(0, 0, 0, 0.050);
+    border-radius: 10%;
+    
+  }
+  .websiteBoxClass:hover {
+    background:rgba(0, 0, 0, 0.473);
+  }
+    .shortNameBox {
+      height:25%;
+      width:100%;
+      position:absolute;
+      bottom:0;
+      text-align: center;
+      text-shadow: 2px 2px black;
+    }
+    .faviBox {
+      height:50%;
+      width:50%;
+      border-radius: 50%;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:rgba(0, 0, 0, 0.527);
+    }
+    .deleteBtn {
+      position:absolute;
+      top:0;
+      right:0;
+    }
 #inputBoxes {
   height: 30%;
   width: 100%;
@@ -125,6 +160,7 @@ header ul li a {
   /* left: 10%; */
   /* ↑ this is affecting the width of whole page */
 }
+
 
 /* clock */
 #date {
@@ -267,6 +303,7 @@ img {
     transform:translate(-50%,0);
     position:absolute;
     z-index:100;
+    transition:top 55s, left 55s;
 }
     #sunBox {
         height: 100%;
