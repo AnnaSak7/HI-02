@@ -35,7 +35,7 @@ function newWebPage() {
 function createNewDivWebPage(nr, dom, shnm) {
   //DEFINING NEW DIV THROUGH JQUERY
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
+  var $newDiv = $('<div/>');
   $newDiv.attr('onClick', `location.href='http://${dom}'`);
   $newDiv.attr('class', 'websiteBoxClass');
 
@@ -63,10 +63,10 @@ function loadLocalWebpage() {
   //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
   for (var i = 0; i < localStorage.length; i++) {
     //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
-    var divAttr = JSON.parse(window.localStorage.getItem('website' + i));
+    var divAttr = JSON.parse(window.localStorage.getItem(Object.keys(localStorage)[i]));
 
     //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
-    createNewDivWebPage(i, divAttr.dom, divAttr.shortname);
+    createNewDivWebPage(Object.keys(localStorage)[i].replace('website',''), divAttr.dom, divAttr.shortname);
 
     //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
     itemNr = i + 1;
