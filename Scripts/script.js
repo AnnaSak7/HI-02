@@ -76,9 +76,9 @@ function loadLocalWebpage() {
 
 
 
-function deleteIcon() {
-  localStorage.removeItem(“website”+);
-}
+//function deleteIcon() {
+//  localStorage.removeItem(“website”+);
+//} 
 
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
