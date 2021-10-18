@@ -69,14 +69,14 @@ function setSMPosition(hours,minutes) {
 
 //TEMPORARY BACKGROUND TOGGLE-BTN
 function toggleState() {
-    document.getElementById(“kroppen”).classList = ‘’;
-    document.getElementById(“kroppen”).classList.toggle(“stage_” + stageNr);
+    document.getElementById("kroppen").classList = '';
+    document.getElementById("kroppen").classList.toggle("stage_" + stageNr);
     stageNr += changeNr;
     if(stageNr == 5) changeNr = -1;
     if(stageNr == 0) changeNr = 1;
     console.log(time);
-  document.getElementById(‘kroppen’).classList = ‘’;
-  document.getElementById(‘kroppen’).classList.toggle(‘stage_’ + stageNr);
+  document.getElementById('kroppen').classList = '';
+  document.getElementById('kroppen').classList.toggle('stage_' + stageNr);
   stageNr += changeNr;
   if (stageNr == 5) changeNr = -1;
   if (stageNr == 0) changeNr = 1;

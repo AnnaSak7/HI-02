@@ -35,30 +35,28 @@ function newWebPage() {
 
 //CREATING NEW DIVS FOR WEBSITE LINKS, GRABBING THE SENT NUMBER ID, DOMAIN NAME AND SHORT NAME
 function createNewDivWebPage(nr, dom, shnm) {
-  //DEFINING NEW DIV THROUGH JQUERY
-  //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
-  $newDiv.attr('onClick', `location.href='http://${dom}'`);
-  $newDiv.attr('class', 'websiteBoxClass');
-  //$newDiv.text(shnm);
+    //DEFINING NEW DIV THROUGH JQUERY
+    //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
+    var $newDiv = $('<div/>').attr('id', 'websiteBox' + nr);
+    $newDiv.attr('onClick', `location.href='http://${dom}'`);
+    $newDiv.attr('class', 'websiteBoxClass');
 
-  // $newDiv.prepend(
-  //       `<div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
-
-  //   //APPEND IMG TAG TO THE DIV TAG
-  $newDiv.prepend(
-    `<button class="deleteBtn">X</button>
-    <img src="http://www.google.com/s2/favicons?domain=${dom}" 
-    alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:30%;width:30%;"/>
-    <div class="shortNameBox">${shnm}</div>`
+    //APPEND IMG TAG TO THE DIV TAG
+    $newDiv.prepend(
+        `<button class="deleteBtn">X</button>
+        <div class="faviBox">
+            <img src="http://www.google.com/s2/favicons?domain=${dom}" 
+            alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:50%;width:50%;"/>
+        </div>
+        <div class="shortNameBox">${shnm}</div>`
   );
 
   $newDiv
     .css({
-      left: 100 * itemNr + 'px',
+      /*left: 25 + (125 * itemNr) + 'px',*/
       //ADD THE NEW DIV TO THE BODY
     })
-    .appendTo('#kroppen')
+    .appendTo('#favWebBox')
     .html();
 }
 
