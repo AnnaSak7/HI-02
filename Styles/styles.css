@@ -114,6 +114,7 @@ header ul li a {
   width: 100%;
   position: relative;
   top: 20%;
+  z-index:99;
   /* left: 10%; */
   /* ↑ this is affecting the width of whole page */
 }
@@ -279,3 +280,44 @@ img {
         animation: partialRotate 10000ms linear infinite;
         animation-direction: alternate;
     }
+
+.stage_0 {
+    background: rgb(135, 181, 252);
+    background-image: linear-gradient(rgba(135, 181, 252, 0), rgb(207, 198, 250));
+}
+.stage_1 {
+    background: rgb(119, 159, 219);
+    background-image: linear-gradient(rgba(119, 159, 219, 0), rgb(172, 166, 250));;
+}
+.stage_2 {
+    background: rgb(102, 137, 189);
+    background-image: linear-gradient(rgba(102, 137, 189, 0), rgb(238, 121, 248));;
+}
+.stage_3 {
+    background: rgb(80, 107, 148);
+    background-image: linear-gradient(rgba(80, 107, 148, 0), rgb(248, 121, 199));;
+}
+.stage_4 {
+    background: rgb(58, 78, 107);
+    background-image: linear-gradient(rgba(58, 78, 107, 0), rgb(248, 80, 136));;
+}
+.stage_5 {
+    background: rgb(36, 48, 66);
+    background-image: linear-gradient(rgba(36, 48, 66, 0), rgb(5, 5, 5));;
+}
+
+#particles-js {
+  position: fixed; /*描画固定*/
+  z-index: -1; /*描画を一番下に*/
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /*背景色*/
+}
+
+#wrapper {
+  position: relative; /*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+  z-index: 1; /*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+  width: 100%;
+  height: 100%;
+}
+
