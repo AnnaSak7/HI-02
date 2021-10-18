@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Mali', cursive;
 }
 
 /* NAV BAR */
@@ -37,6 +38,7 @@ header ul li a {
   letter-spacing: 1px;
   font-weight: 400px;
   transition: 0.6s;
+  list-style: none;
 }
 
 /* Dropdown */
@@ -62,7 +64,8 @@ header ul li a {
 .navbar a:hover,
 .dropdown:hover .dropbtn,
 .dropbtn:focus {
-  background-color: red;
+  background-color: rgb(39, 130, 172);
+  border-radius: 20px;
 }
 
 /* SHOW DROPDOWN ON HOVER */
@@ -77,6 +80,7 @@ header ul li a {
   width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  list-style: none;
 }
 
 .dropdown-content a {
