@@ -50,7 +50,6 @@ function createNewDivWebPage(nr, dom, shnm) {
     `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/><div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
   );
 
-  $newDiv.text(shnm);
   $newDiv
     .css({
       left: 100 * itemNr + 'px',
