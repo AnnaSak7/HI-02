@@ -3,10 +3,13 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
 =======
 >>>>>>> 8957f858bd3228decc73f2b2f9fb74e66991929c
+=======
+>>>>>>> Stashed changes
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
@@ -79,11 +82,23 @@ function loadLocalWebpage() {
   }
 }
 
+// const deleteBtn = document.querySelectorAll('.deleteBtn');
+// console.log(deleteBtn);
 
+<<<<<<< Updated upstream
 
 /*function deleteIcon() {
   localStorage.removeItem(“website”+);
 }*/
+=======
+// // function deleteIcon() {
+// //   console.log('deleteBtn');
+// //   //erase the website when clicked
+// //   //get clicked item id
+// //   // delete from localStorage
+// //   //localStorage.removeItem(“website1”);
+// // }
+>>>>>>> Stashed changes
 
 /* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
 function myFunction() {
