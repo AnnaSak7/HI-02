@@ -45,7 +45,10 @@ function createNewDivWebPage(nr, dom, shnm) {
 
   //   //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
-    `<img src="http://www.google.com/s2/favicons?domain=${dom}" alt="favicon"/><div class="iconShortNameBox"><p class="shortName">${shnm}</p><button class="deleteBtn">X</button></div>`
+    `<button class="deleteBtn">X</button>
+    <img src="http://www.google.com/s2/favicons?domain=${dom}" 
+    alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:30%;width:30%;"/>
+    <div class="shortNameBox">${shnm}</div>`
   );
 
   $newDiv
@@ -71,6 +74,8 @@ function loadLocalWebpage() {
     itemNr = i + 1;
   }
 }
+
+
 
 /*function deleteIcon() {
   localStorage.removeItem(“website”+);
