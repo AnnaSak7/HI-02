@@ -1,6 +1,6 @@
 @font-face {
-  font-family: coolFont;
-  src: url('../fonts/Halloween\ Night.otf');
+  font-family: testFont;
+  src: url('../fonts/Fredoka_One/FredokaOne-Regular.ttf');
 }
 
 html,
@@ -14,13 +14,15 @@ body {
   padding: 0;
   box-sizing: border-box;
   list-style-type: none;
-  font-family: 'Mali', cursive;
+  font-family: testFont;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px rgb(5, 69, 112);
 }
 
 /* NAV BAR */
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -41,7 +43,6 @@ header ul {
 header ul li a {
   margin: 0 15px;
   text-decoration: none;
-  color: #ffffff;
   letter-spacing: 1px;
   font-weight: 400px;
   list-style: none;
@@ -54,11 +55,10 @@ header ul li a {
   font-size: 20px;
   border: none;
   outline: none;
-  color: white;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
-  margin: 0px 0;
+  margin: 20px;
   border-radius: 18px;
   transition: color 250ms ease-in-out,
     background 350ms cubic-bezier(0.26, 0.11, 0.26, 1);
@@ -84,13 +84,14 @@ header ul li a {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* MODAL CONTENT */
 .modal-content {
   background-color: #e8f4fa;
+  margin: 15% auto;
+  background-color: rgb(51, 70, 78);
   box-shadow: 0px 0px 3px black;
   border-radius: 10px;
   padding: 20px;
@@ -122,7 +123,6 @@ button {
 
 /* CLOSE BUTTON */
 .close {
-  color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -149,7 +149,7 @@ button {
 .websiteBoxClass {
   height: 100px;
   width: 100px;
-  color: white;
+
   position: relative;
   margin-left: 2%;
   margin-right: 2%;
@@ -167,7 +167,6 @@ button {
   position: absolute;
   bottom: 0;
   text-align: center;
-  text-shadow: 2px 2px black;
 }
 .faviBox {
   height: 50%;
@@ -197,7 +196,6 @@ button {
 
 /* clock */
 #date {
-  color: #fff;
   font-weight: 500;
   font-size: 2rem;
 }
