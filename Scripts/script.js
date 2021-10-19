@@ -1,14 +1,18 @@
 //ADDING VARIABLES
 var websiteDOM;
 var websiteShortName;
+var modal;
 var itemNr = 0;
 
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
-  websiteDOM = document.getElementById('websiteDOM');
-  websiteShortName = document.getElementById('websiteShortname');
-  console.log(window.localStorage.getItem('DOM0'));
+  websiteDOM = document.getElementById("websiteDOM");
+  websiteShortName = document.getElementById("websiteShortname");
+  console.log(window.localStorage.getItem("DOM0"));
+
+  //MODAL ELEMENT
+  modal = document.getElementById("myModal");
 
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
   loadLocalWebpage();
@@ -22,7 +26,7 @@ function newWebPage() {
     shortname: websiteShortName.value,
   };
   //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
-  localStorage.setItem('website' + itemNr, JSON.stringify(website));
+  localStorage.setItem("website" + itemNr, JSON.stringify(website));
 
   //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
   createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
@@ -35,9 +39,9 @@ function newWebPage() {
 function createNewDivWebPage(nr, dom, shnm) {
   //DEFINING NEW DIV THROUGH JQUERY
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
-  var $newDiv = $('<div/>');
-  $newDiv.attr('onClick', `location.href='http://${dom}'`);
-  $newDiv.attr('class', 'websiteBoxClass');
+  var $newDiv = $("<div/>");
+  $newDiv.attr("onClick", `location.href='http://${dom}'`);
+  $newDiv.attr("class", "websiteBoxClass");
 
   //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
@@ -54,7 +58,7 @@ function createNewDivWebPage(nr, dom, shnm) {
       /*left: 25 + (125 * itemNr) + 'px',*/
       //ADD THE NEW DIV TO THE BODY
     })
-    .appendTo('#favWebBox')
+    .appendTo("#favWebBox")
     .html();
 }
 
@@ -63,34 +67,42 @@ function loadLocalWebpage() {
   //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
   for (var i = 0; i < localStorage.length; i++) {
     //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
-    var divAttr = JSON.parse(window.localStorage.getItem(Object.keys(localStorage)[i]));
+    var divAttr = JSON.parse(
+      window.localStorage.getItem(Object.keys(localStorage)[i])
+    );
 
     //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
-    createNewDivWebPage(Object.keys(localStorage)[i].replace('website',''), divAttr.dom, divAttr.shortname);
+    createNewDivWebPage(
+      Object.keys(localStorage)[i].replace("website", ""),
+      divAttr.dom,
+      divAttr.shortname
+    );
 
     //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
     itemNr = i + 1;
   }
 }
 
-const deleteBtn = document.querySelectorAll('.deleteBtn');
+const deleteBtn = document.querySelectorAll(".deleteBtn");
 console.log(deleteBtn);
 
 function deleteIcons(nr) {
-  window.localStorage.removeItem('website' + nr);
+  window.localStorage.removeItem("website" + nr);
+}
+// MODAL
+// USER CLICKS ON BUTTON OPEN MODAL
+function showModal() {
+  modal.style.display = "block";
 }
 
-/* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
-function myFunction() {
-  document.getElementById('myDropdown').classList.toggle('show');
+// CLOSE THE MODAL WHEN USER CLICKS ON SPAN
+function hideModal() {
+  modal.style.display = "none";
 }
 
-///* CLOSES THE DROPDOWN WHEN THE USER CLICKS OUTSIDE OF IT */
-/*window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-    var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-    }
-  }*/
+// CLOSES THE WINDOW WHEN USER CLICKS OUTSIDE THE MODAL
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};

@@ -7,9 +7,12 @@
       name="description"
       content=" PLACEHOLDER What time is it? Check it here"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
     <!--JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,32 +20,34 @@
     <link rel="stylesheet" href="Styles/styles.css" />
     <link rel="stylesheet" href="Styles/styles2.css" />
     <script src="Scripts/script.js"></script>
-   
 
     <title>ANIMALS</title>
   </head>
   <body id="kroppen">
     <div id="particles-js"></div>
     <div id="wrapper">
+
+      <!--NAVBAR-->
       <header>
         <nav>
-          <!--NAVBAR-->
           <ul>
-            <div class="dropdown">
-              <button class="dropbtn" onclick="myFunction()">ADD DOMAIN</button>
-              <div class="dropdown-content" id="myDropdown">
-                <li>
-                  DOM:<input id="websiteDOM" /> SHORT NAME:<input
-                    id="websiteShortname"
-                  />
-                  <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
-                </li> <!--NOTE TO SELF: SWITCH TO MODAL-->
-              </div>
-            </div>
+           <button onclick="showModal()" id="myBtn">ADD DOMAIN</button>
           </ul>
         </nav>
         <div id="date"></div>
       </header>
+
+      <!-- MODAL -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span onclick="hideModal()">&times;</span>
+          <p>sheeeeesh</p>
+          DOM:<input id="websiteDOM" /> SHORT NAME:<input
+            id="websiteShortname"
+          />
+          <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
+        </div>
+      </div>
 
       <!--FORM TO ADD NEW WEBSITE TO LOCAL STORAGE-->
       <div id="inputBoxes">
@@ -51,11 +56,9 @@
           Click me to change background color
         </button>
       </div>
-      <div id="favWebBox">
-        
-      </div>
+      <div id="favWebBox"></div>
       <div id="sunContainer">
-          <svg
+        <svg
           id="sunBox"
           width="359"
           height="355"
@@ -265,56 +268,56 @@
         </svg>
       </div>
       <div id="moonContainer">
-      <svg
-        id="moonBox"
-        width="500"
-        height="500"
-        viewBox="0 0 500 500"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          id="moon"
-          d="M349 249.5C349 304.452 304.452 349 249.5 349C194.548 349 150 304.452 150 249.5C150 194.548 194.548 150 249.5 150C264.704 150 279.112 153.41 292 159.507C189 193.5 246 329 349 249.5Z"
-          fill="#D8DC01"
-        />
-        <path
-          class="star1"
-          d="M333 151C321.096 151.5 322.5 152 320.5 174.5C319.596 152.5 319.5 152.069 308 151C319.5 151 319.596 140 320.5 127.5C321.596 140 319.596 151 333 151Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-        <path
-          class="star1"
-          d="M389 312.5C377.096 313 378.5 313.5 376.5 336C375.596 314 375.5 313.569 364 312.5C375.5 312.5 375.596 301.5 376.5 289C377.596 301.5 375.596 312.5 389 312.5Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-        <path
-          class="star2"
-          d="M130 226.5C118.096 227 119.5 227.5 117.5 250C116.596 228 116.5 227.569 105 226.5C116.5 226.5 116.596 215.5 117.5 203C118.596 215.5 116.596 226.5 130 226.5Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-        <path
-          class="star2"
-          d="M342 172.5C334.857 172.745 335.7 172.989 334.5 184C333.957 173.234 333.9 173.023 327 172.5C333.9 172.5 333.957 167.117 334.5 161C335.157 167.117 333.957 172.5 342 172.5Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-        <path
-          class="star1"
-          d="M112 203.5C104.857 203.745 105.7 203.989 104.5 215C103.957 204.234 103.9 204.023 97 203.5C103.9 203.5 103.957 198.117 104.5 192C105.157 198.117 103.957 203.5 112 203.5Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-        <path
-          class="star2"
-          d="M373 349C364.429 349.426 365.44 349.851 364 369C363.349 350.277 363.28 349.909 355 349C363.28 349 363.349 339.638 364 329C364.789 339.638 363.349 349 373 349Z"
-          fill="#A97D0C"
-          fill-opacity="0.73"
-        />
-      </svg>
+        <svg
+          id="moonBox"
+          width="500"
+          height="500"
+          viewBox="0 0 500 500"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="moon"
+            d="M349 249.5C349 304.452 304.452 349 249.5 349C194.548 349 150 304.452 150 249.5C150 194.548 194.548 150 249.5 150C264.704 150 279.112 153.41 292 159.507C189 193.5 246 329 349 249.5Z"
+            fill="#D8DC01"
+          />
+          <path
+            class="star1"
+            d="M333 151C321.096 151.5 322.5 152 320.5 174.5C319.596 152.5 319.5 152.069 308 151C319.5 151 319.596 140 320.5 127.5C321.596 140 319.596 151 333 151Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+          <path
+            class="star1"
+            d="M389 312.5C377.096 313 378.5 313.5 376.5 336C375.596 314 375.5 313.569 364 312.5C375.5 312.5 375.596 301.5 376.5 289C377.596 301.5 375.596 312.5 389 312.5Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+          <path
+            class="star2"
+            d="M130 226.5C118.096 227 119.5 227.5 117.5 250C116.596 228 116.5 227.569 105 226.5C116.5 226.5 116.596 215.5 117.5 203C118.596 215.5 116.596 226.5 130 226.5Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+          <path
+            class="star2"
+            d="M342 172.5C334.857 172.745 335.7 172.989 334.5 184C333.957 173.234 333.9 173.023 327 172.5C333.9 172.5 333.957 167.117 334.5 161C335.157 167.117 333.957 172.5 342 172.5Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+          <path
+            class="star1"
+            d="M112 203.5C104.857 203.745 105.7 203.989 104.5 215C103.957 204.234 103.9 204.023 97 203.5C103.9 203.5 103.957 198.117 104.5 192C105.157 198.117 103.957 203.5 112 203.5Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+          <path
+            class="star2"
+            d="M373 349C364.429 349.426 365.44 349.851 364 369C363.349 350.277 363.28 349.909 355 349C363.28 349 363.349 339.638 364 329C364.789 339.638 363.349 349 373 349Z"
+            fill="#A97D0C"
+            fill-opacity="0.73"
+          />
+        </svg>
       </div>
       <div id="ground">
         <img src="./images/green_grass_with_trees.svg" alt="ground-image" />
