@@ -27,31 +27,32 @@ $(document).ready(function () {
 });
 
 //TEMPORARY BACKGROUND TOGGLE-BUTTON
-function toggleState() {
-  document.getElementById('kroppen').classList = '';
-  document.getElementById('kroppen').classList.toggle('stage_' + stageNr);
-  stageNr += changeNr;
-  if (stageNr == 5) changeNr = -1;
-  if (stageNr == 0) changeNr = 1;
-  console.log(time);
-}
+// function toggleState() {
+//   document.getElementById('kroppen').classList = '';
+//   document.getElementById('kroppen').classList.toggle('stage_' + stageNr);
+//   stageNr += changeNr;
+//   if (stageNr == 5) changeNr = -1;
+//   if (stageNr == 0) changeNr = 1;
+//   console.log(time);
+// }
 
 function bytTime() {
-  cHours = document.getElementById("cHours").value;
-  cMinutes = document.getElementById("cMinutes").value;
-  cSeconds = document.getElementById("cSeconds").value;
+  cHours = document.getElementById('cHours').value;
+  cMinutes = document.getElementById('cMinutes').value;
+  cSeconds = document.getElementById('cSeconds').value;
   changeTime = true;
-
-
 }
 
 //CHANGE THE TIMER TO CURRENT TIME
 function setTime() {
-  if(!changeTime)today = new Date();
-  if(changeTime)today = new Date(2021, 10, 19, cHours, cMinutes, cSeconds),   setSMPosition(today.getHours(), today.getMinutes());
+  if (!changeTime) today = new Date();
+  if (changeTime)
+    (today = new Date(2021, 10, 19, cHours, cMinutes, cSeconds)),
+      setSMPosition(today.getHours(), today.getMinutes());
 
   //IF A NEW MINUTE STARTS WE CHANGE THE SUN/MOON POSITION, SENDING THE CURRENT HOURS AND MINUTES TO THE FUNCTION
-  if (today.getSeconds() == 0) setSMPosition(today.getHours(), today.getMinutes()), backgroundColor();
+  if (today.getSeconds() == 0)
+    setSMPosition(today.getHours(), today.getMinutes()), backgroundColor();
 
   //ADD A 0 TO THE CURRENT HOURS/MINUTES/SECONDS AND THEN KEEP THE LAST TWO DIGITS OF THE STRING
   let currentHours = ('0' + today.getHours()).slice(-2);
@@ -83,31 +84,20 @@ function setSMPosition(hours, minutes) {
     sunBox.style.left = x_pos + '%';
     moonBox.style.bottom = '300%';
   }
-  if (hours >= 19 && hours < 24 || hours >= 0 && hours < 7) {
+  if ((hours >= 19 && hours < 24) || (hours >= 0 && hours < 7)) {
     moonBox.style.bottom = y_pos + 20 + '%';
     moonBox.style.left = x_pos + '%';
     sunBox.style.bottom = '300%';
-    console.log("tjo");
+    console.log('tjo');
   }
-}
-
-//TEMPORARY BACKGROUND TOGGLE-BTN
-function toggleState() {
-  document.getElementById('kroppen').classList = '';
-  document.getElementById('kroppen').classList.toggle('stage_' + stageNr);
-  stageNr += changeNr;
-  if (stageNr == 5) changeNr = -1;
-  if (stageNr == 0) changeNr = 1;
-  console.log(time);
 }
 
 //CHANGE THE BACKGROUND COLOR DEPENDING ON TIME OF DAY
 function backgroundColor() {
-  
   let hr = today.getHours();
   let background = document.getElementById('kroppen');
   let stars = document.getElementById('particles-js');
-
+  let filter = document.getElementById('filter');
   //CHANGE THE BACKGROUND STATE DEPENDING ON CURRENT HOUR (EACH CASE IS BASED ON HOURS)
   switch (hr) {
     default:
@@ -115,33 +105,45 @@ function backgroundColor() {
       background.classList.add('stage_0');
       stars.className = '';
       stars.classList.add('noStars');
+      filter.classList = '';
+      filter.classList.add('filter');
+
       break;
 
     case 17:
       background.className = '';
       background.classList.add('stage_1');
       stars.className = '';
-      stars.classList.add('noStars');
+      stars.classList.add('stars-inTheSky-halfopacity');
+      filter.classList = '';
+      filter.classList.add('filter-17');
       break;
 
     case 18:
       background.className = '';
       background.classList.add('stage_2');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('stars-inTheSky-halfopacity');
+      filter.classList = '';
+      filter.classList.add('filter-18');
       break;
 
     case 19:
       background.className = '';
       background.classList.add('stage_3');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('stars-inTheSky-halfopacity');
+      filter.classList = '';
+      filter.classList.add('filter-19');
       break;
 
     case 20:
       background.className = '';
       background.classList.add('stage_4');
-      stars.className = ''
+      stars.className = '';
+      stars.classList.add('stars-inTheSky-halfopacity');
+      filter.classList = '';
+      filter.classList.add('filter-20');
       break;
 
     case 21:
@@ -154,31 +156,41 @@ function backgroundColor() {
     case 4:
       background.className = '';
       background.classList.add('stage_5');
-      stars.className = ''
+      stars.className = '';
+      filter.classList = '';
+      filter.classList.add('filter-21');
       break;
     case 5:
       background.className = '';
       background.classList.add('stage_4');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('stars-inTheSky-halfopacity');
+      filter.classList = '';
+      filter.classList.add('filter-20');
       break;
     case 6:
       background.className = '';
       background.classList.add('stage_3');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('noStars');
+      filter.classList = '';
+      filter.classList.add('filter-19');
       break;
     case 7:
       background.className = '';
       background.classList.add('stage_2');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('noStars');
+      filter.classList = '';
+      filter.classList.add('filter-18');
       break;
     case 8:
       background.className = '';
       background.classList.add('stage_1');
-      stars.className = ''
+      stars.className = '';
       stars.classList.add('noStars');
+      filter.classList = '';
+      filter.classList.add('filter-17');
       break;
   }
 }
@@ -187,7 +199,7 @@ function backgroundColor() {
 particlesJS('particles-js', {
   particles: {
     number: {
-      value: 346, //この数値を変更すると星の数が増減できる
+      value: 346,
       density: {
         enable: true,
         value_area: 800,
@@ -197,19 +209,19 @@ particlesJS('particles-js', {
       value: '#ffffff',
     },
     shape: {
-      type: 'circle', //形状はcircleを指定
+      type: 'circle',
       stroke: {
         width: 0,
       },
     },
     opacity: {
-      value: 1, //シェイプの透明度
-      random: true, //シェイプの透明度をランダムにする
+      value: 1,
+      random: true,
       anim: {
-        enable: true, //シェイプの透明度をアニメーションさせる
-        speed: 3, //シェイプの透明度をアニメーションさせる
-        opacity_min: 0, //透明度の最小値０
-        sync: false, //全てを同時にアニメーションさせない
+        enable: true,
+        speed: 3,
+        opacity_min: 0,
+        sync: false,
       },
     },
     size: {
@@ -227,10 +239,10 @@ particlesJS('particles-js', {
     },
     move: {
       enable: true,
-      speed: 120, //この数値を小さくするとゆっくりな動きになる
-      direction: 'none', //方向指定なし
-      random: true, //動きはランダムに
-      straight: true, //動きをとどめる
+      speed: 120,
+      direction: 'none',
+      random: true,
+      straight: true,
       out_mode: 'out',
       bounce: false,
       attract: {
