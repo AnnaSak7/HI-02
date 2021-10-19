@@ -67,7 +67,8 @@ header ul li a {
 /*BACKGROUND COLOUR ON BUTTON*/
 .myBtn:hover,
 .myBtn:focus {
-  background-color: rgb(39, 130, 172);
+  border: 2px solid #ffffff;
+  border-radius: 18px;
   cursor: pointer;
 }
 
