@@ -27,7 +27,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 100px;
+  padding: 20px 80px;
   background-color: none;
   z-index: 9;
 }
@@ -44,14 +44,12 @@ header ul li a {
   color: #ffffff;
   letter-spacing: 1px;
   font-weight: 400px;
-  transition: 0.6s;
   list-style: none;
 }
 
 /* BUTTON */
 
-#myBtn,
-#myBtn2 {
+.myBtn {
   cursor: pointer;
   font-size: 20px;
   border: none;
@@ -60,16 +58,17 @@ header ul li a {
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
-  margin: 0;
+  margin: 0px 0;
+  border-radius: 18px;
+  transition: color 250ms ease-in-out,
+    background 350ms cubic-bezier(0.26, 0.11, 0.26, 1);
 }
 
 /*BACKGROUND COLOUR ON BUTTON*/
-.navbar a:hover,
-#myBtn,
-#myBtn2,
-#myBtn:focus {
+.myBtn:hover,
+.myBtn:focus {
   background-color: rgb(39, 130, 172);
-  border-radius: 20px;
+  cursor: pointer;
 }
 
 /* MODAL */
