@@ -18,12 +18,7 @@ $(document).ready(function () {
   setTime();
   setInterval(setTime, 1000);
   backgroundColor();
-<<<<<<< HEAD
   setSMPosition(today.getHours(),today.getMinutes());
-=======
-  setSMPosition(today.getHours(), today.getMinutes());
-  toggleState();
->>>>>>> 8957f858bd3228decc73f2b2f9fb74e66991929c
 });
 
 
@@ -84,24 +79,6 @@ function setSMPosition(hours, minutes) {
   }
 }
 
-<<<<<<< HEAD
-=======
-//TEMPORARY BACKGROUND TOGGLE-BTN
-function toggleState() {
-  document.getElementById("kroppen").classList = "";
-  document.getElementById("kroppen").classList.toggle("stage_" + stageNr);
-  stageNr += changeNr;
-  if (stageNr == 5) changeNr = -1;
-  if (stageNr == 0) changeNr = 1;
-  console.log(time);
-  document.getElementById("kroppen").classList = "";
-  document.getElementById("kroppen").classList.toggle("stage_" + stageNr);
-  stageNr += changeNr;
-  if (stageNr == 5) changeNr = -1;
-  if (stageNr == 0) changeNr = 1;
-  console.log(time);
-}
->>>>>>> 8957f858bd3228decc73f2b2f9fb74e66991929c
 
 //CHANGE THE BACKGROUND COLOR DEPENDING ON TIME OF DAY
 function backgroundColor() {

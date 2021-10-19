@@ -3,10 +3,6 @@ var websiteDOM;
 var websiteShortName;
 var itemNr = 0;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8957f858bd3228decc73f2b2f9fb74e66991929c
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
 $(document).ready(function () {
   //ADDING THE INPUT BOXES TO JAVASCRIPT
