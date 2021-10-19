@@ -31,18 +31,18 @@
         <nav>
           <ul>
             <li>
-              <button onclick="showModal()" id="myBtn">ADD DOMAIN</button>
+              <button onclick="showModal(1)" id="myBtn">ADD DOMAIN</button>
             </li>
-            <li><button onclick="showModal()" id="myBtn2">CHANGE TIME</button></li>
+            <li><button onclick="showModal(2)" id="myBtn2">CHANGE TIME</button></li>
           </ul>
         </nav>
         <div id="date"></div>
       </header>
 
       <!-- MODAL 1 -->
-      <div id="myModal" class="modal">
+      <div id="myModal1" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal()">&times;</span>
+          <span onclick="hideModal(1)">&times;</span>
           <p>sheeeeesh</p>
           DOM:<input id="websiteDOM" /> SHORT NAME:<input
             id="websiteShortname"
@@ -55,13 +55,12 @@
 
       <div id="myModal2" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal()">&times;</span>
+          <span onclick="hideModal(2)">&times;</span>
           <p>sheeeeesh 2</p>
           H<input id="cHours" /> M<input id="cMinutes" /> S<input
           id="cSeconds"
         />
         <button onclick="bytTime()">CHANGE TIME</button>
-          <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 //ADDING VARIABLES
 var websiteDOM;
 var websiteShortName;
-var modal;
+
 var itemNr = 0;
 
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
@@ -11,8 +11,7 @@ $(document).ready(function () {
   websiteShortName = document.getElementById('websiteShortname');
   console.log(window.localStorage.getItem('DOM0'));
 
-  //MODAL ELEMENT
-  modal = document.getElementById('myModal');
+
 
 
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
@@ -93,18 +92,24 @@ function deleteIcons(nr) {
 
 // MODAL
 // USER CLICKS ON BUTTON OPEN MODAL
-function showModal() {
-  modal.style.display = 'block';
+function showModal(x) {
+  document.getElementById("myModal" + x).style.display = 'block';
 }
 
 // CLOSE THE MODAL WHEN USER CLICKS ON SPAN
-function hideModal() {
-  modal.style.display = 'none';
+function hideModal(x) {
+
+  document.getElementById("myModal" + x).style.display = 'none';
 }
 
 // CLOSES THE WINDOW WHEN USER CLICKS OUTSIDE THE MODAL
 window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
+  var modal1 = document.getElementById("myModal1");
+  var modal2 = document.getElementById("myModal2");
+  if (event.target == modal1) {
+    modal1.style.display = 'none';
+  }
+  if (event.target == modal2) {
+    modal2.style.display = 'none';
   }
 };
