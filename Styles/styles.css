@@ -50,7 +50,7 @@ header ul li a {
 
 /* BUTTON */
 
-#myBtn, #myBtn2 {
+.myBtn {
   cursor: pointer;
   font-size: 20px;
   border: none;
@@ -64,8 +64,8 @@ header ul li a {
 
 /*BACKGROUND COLOUR ON BUTTON*/
 .navbar a:hover,
-#myBtn, #myBtn2, 
-#myBtn:focus {
+.myBtn, 
+.myBtn:focus {
   background-color: rgb(39, 130, 172);
   border-radius: 20px;
 }
