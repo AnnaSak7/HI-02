@@ -14,6 +14,7 @@ $(document).ready(function () {
   //MODAL ELEMENT
   modal = document.getElementById("myModal");
 
+
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
   loadLocalWebpage();
 });
