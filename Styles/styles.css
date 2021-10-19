@@ -18,9 +18,9 @@ body {
   padding: 0;
   box-sizing: border-box;
   list-style-type: none;
-  font-family:testFont;
-  color:rgb(255, 255, 255);
-  text-shadow:1px 1px rgb(5, 69, 112);
+  font-family: testFont;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px rgb(5, 69, 112);
 }
 
 /* NAV BAR */
@@ -74,7 +74,6 @@ header ul li a {
   border: 2px solid #ffffff;
   border-radius: 18px;
   cursor: pointer;
-  
 }
 
 /* MODAL */
@@ -102,24 +101,40 @@ button {
 }
 /* MODAL CONTENT */
 .modal-content {
-  margin: 15% auto;
-  background-color:rgb(51, 70, 78);
+  background-color: #e8f4fa;
+  background-color: rgb(51, 70, 78);
   box-shadow: 0px 0px 3px black;
   border-radius: 10px;
-
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
   width: 500px;
-  height: 300px;
-  top: 200px;
-  left: calc(50% - 175px);
+  height: 500px;
   position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+
+button {
+  background-color: #1a9eb5ad;
 }
 
 /* CLOSE BUTTON */
 .close {
-
   float: right;
   font-size: 28px;
   font-weight: bold;

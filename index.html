@@ -44,9 +44,10 @@
       <!-- MODAL 1 -->
       <div id="myModal1" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal()">&times;</span><br/>
-          DOM:<input id="websiteDOM" /><br/>
-          SHORT NAME:<input id="websiteShortname"/>
+          <span onclick="hideModal()">&times;</span>
+          <p>Add Your Favorite WebPage</p>
+          <div>Add URL<input id="websiteDOM" /></div>
+          <div>Short name for page<input id="websiteShortname" /></div>
           <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
         </div>
       </div>
@@ -55,10 +56,11 @@
 
       <div id="myModal2" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal()">&times;</span><br/>
-          H<input id="cHours" /><br/>
-          M<input id="cMinutes" /> <br/>
-          S<input id="cSeconds" />
+          <span onclick="hideModal()">&times;</span>
+          <p>Add Time of day (1 - 24)</p>
+          <div>Hour<input id="cHours" /></div>
+          <div>Minutes<input id="cMinutes" /></div>
+          <div>Seconds<input id="cSeconds" /></div>
           <button onclick="bytTime()">CHANGE TIME</button>
         </div>
       </div>
