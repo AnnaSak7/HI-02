@@ -58,7 +58,7 @@ header ul li a {
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
-  margin: 0px 0;
+  margin: 20px;
   border-radius: 18px;
   transition: color 250ms ease-in-out,
     background 350ms cubic-bezier(0.26, 0.11, 0.26, 1);
