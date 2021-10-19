@@ -1,6 +1,7 @@
 //ADDING VARIABLES
 var websiteDOM;
 var websiteShortName;
+var modal;
 var itemNr = 0;
 
 //JQUERY WHEN THE DOCUMENT LOADS WE CAN ADD ALL THE ELEMENTS WE WANT TO JAVASCRIPT
@@ -9,6 +10,9 @@ $(document).ready(function () {
   websiteDOM = document.getElementById('websiteDOM');
   websiteShortName = document.getElementById('websiteShortname');
   console.log(window.localStorage.getItem('DOM0'));
+
+  //MODAL ELEMENT
+  modal = document.getElementById('myModal');
 
   //RUN THE FUNCTION THAT LOADS PREVIOUSLY SAVED PAGES IN LOCAL STORAGE
   loadLocalWebpage();
@@ -50,7 +54,7 @@ function createNewDivWebPage(nr, dom, shnm) {
 
   //APPEND IMG TAG TO THE DIV TAG
   $newDiv.prepend(
-    `<button class="deleteBtn" onclick="deleteIcons(${nr})">X</button>
+    `<button class="deleteBtn" onclick="deleteIcons(${nr})" style="background-color: transparent; border: none; font-weight: 900; font-size: 1rem;">X</button>
         <div class="faviBox">
             <img src="http://www.google.com/s2/favicons?domain=${dom}"
             alt="favicon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:50%;width:50%;"/>
@@ -82,22 +86,24 @@ console.log(deleteBtn);
 //REMOVE ICONS ON PRESSING THE "X" BUTTON
 function deleteIcons(nr) {
   window.localStorage.removeItem('website' + nr);
-  document.getElementById("websiteBox" + nr).remove();
+  document.getElementById('websiteBox' + nr).remove();
   event.stopPropagation();
-  
 }
 
-/* DROPDOWN MENU WHEN THE USER CLICKS ON THE BUTTON */
-function myFunction() {
-  document.getElementById('myDropdown').classList.toggle('show');
+// MODAL
+// USER CLICKS ON BUTTON OPEN MODAL
+function showModal() {
+  modal.style.display = 'block';
 }
 
-///* CLOSES THE DROPDOWN WHEN THE USER CLICKS OUTSIDE OF IT */
-/*window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-    var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-    }
-  }*/
+// CLOSE THE MODAL WHEN USER CLICKS ON SPAN
+function hideModal() {
+  modal.style.display = 'none';
+}
+
+// CLOSES THE WINDOW WHEN USER CLICKS OUTSIDE THE MODAL
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};

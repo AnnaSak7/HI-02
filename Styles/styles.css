@@ -1,6 +1,6 @@
 @font-face {
   font-family: coolFont;
-  src: url("../fonts/Halloween\ Night.otf");
+  src: url('../fonts/Halloween\ Night.otf');
 }
 
 html,
@@ -13,10 +13,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
   font-family: 'Mali', cursive;
 }
 
 /* NAV BAR */
+
 header {
   position: fixed;
   top: 0;
@@ -46,16 +48,11 @@ header ul li a {
   list-style: none;
 }
 
-/* Dropdown */
+/* BUTTON */
 
-.dropdown {
-  float: left;
-  overflow: auto;
-}
-
-.dropdown .dropbtn {
+#myBtn, #myBtn2 {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   outline: none;
   color: white;
@@ -65,103 +62,113 @@ header ul li a {
   margin: 0;
 }
 
-/*BACKGROUND COLOUR ON DROPDOWN BUTTON*/
+/*BACKGROUND COLOUR ON BUTTON*/
 .navbar a:hover,
-.dropdown:hover .dropbtn,
-.dropbtn:focus {
+#myBtn, #myBtn2, 
+#myBtn:focus {
   background-color: rgb(39, 130, 172);
   border-radius: 20px;
 }
 
-/* SHOW DROPDOWN ON HOVER */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+/* MODAL */
 
-.dropdown-content {
+/* MODAL BACKGROUND */
+.modal {
   display: none;
-  position: absolute;
-  background-color: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
   width: 100%;
-  z-index: 1;
-  list-style: none;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.dropdown-content a {
-  float: none;
+/* MODAL CONTENT */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* CLOSE BUTTON */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
   color: black;
-  padding: 12px 16px;
   text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.show {
-  display: block;
+  cursor: pointer;
 }
 
 /*FOR LOCAL STORAGE FUNCTIONALITY*/
 #favWebBox {
-  height:15%;
-  width:100%;
-  position:absolute;
-  top:50%;
+  height: 15%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
   text-align: center;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  
-  
 }
-  .websiteBoxClass {
-    height: 100px;
-    width: 100px;
-    color: white;
-    position:relative;
-    margin-left:2%;
-    margin-right:2%;
-    z-index:99;
-    background:rgba(0, 0, 0, 0.050);
-    border-radius: 10%;
-    
-  }
-  .websiteBoxClass:hover {
-    background:rgba(0, 0, 0, 0.473);
-    cursor:pointer;
-  }
-    .shortNameBox {
-      height:25%;
-      width:100%;
-      position:absolute;
-      bottom:0;
-      text-align: center;
-      text-shadow: 2px 2px black;
-    }
-    .faviBox {
-      height:50%;
-      width:50%;
-      border-radius: 50%;
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
-      background:rgba(0, 0, 0, 0.527);
-    }
-    .deleteBtn {
-      position:absolute;
-      top:0;
-      right:0;
-    }
+.websiteBoxClass {
+  height: 100px;
+  width: 100px;
+  color: white;
+  position: relative;
+  margin-left: 2%;
+  margin-right: 2%;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10%;
+}
+.websiteBoxClass:hover {
+  background: rgba(0, 0, 0, 0.473);
+  cursor: pointer;
+}
+.shortNameBox {
+  height: 25%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+.faviBox {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.527);
+}
+.deleteBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 #inputBoxes {
   height: 30%;
   width: 100%;
   position: relative;
   top: 20%;
-  z-index:99;
+  z-index: 99;
   /* left: 10%; */
   /* ↑ this is affecting the width of whole page */
 }
-
 
 /* clock */
 #date {
@@ -177,7 +184,7 @@ header ul li a {
   width: 100%;
   height: auto;
   z-index: 5;
-  bottom:-1%;
+  bottom: -1%;
   left: 0%;
 }
 
@@ -268,8 +275,6 @@ img {
   }
 }
 
-
-
 .star1 {
   animation: shine 3000ms ease-in-out infinite;
 }
@@ -299,70 +304,29 @@ img {
 
 /*TEMPORARY SUN/MOON*/
 #sunContainer {
-    height:20%;
-    width:20%;
-    transform:translate(-50%,0);
-    position:absolute;
-    z-index:100;
+  height: 20%;
+  width: 20%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  z-index: 100;
+  transition: top 55s, left 55s;
 }
-    #sunBox {
-        height: 100%;
-        width: 100%;
-        animation: spinSun 10000ms linear infinite;
-    }
+#sunBox {
+  height: 100%;
+  width: 100%;
+  animation: spinSun 10000ms linear infinite;
+}
 
 #moonContainer {
-    height: 30%;
-    width: 30%;
-    transform:translate(-50%,12%);
-    position: absolute;
-    z-index: 100;
-
+  height: 30%;
+  width: 30%;
+  transform: translate(-50%, 12%);
+  position: absolute;
+  z-index: 100;
 }
-    #moonBox {
-        height:100%;
-        width:100%;
-        animation: partialRotate 10000ms linear infinite;
-        animation-direction: alternate;
-    }
-
-.stage_0 {
-    background: rgb(135, 181, 252);
-    background-image: linear-gradient(rgba(135, 181, 252, 0), rgb(207, 198, 250));
-}
-.stage_1 {
-    background: rgb(119, 159, 219);
-    background-image: linear-gradient(rgba(119, 159, 219, 0), rgb(172, 166, 250));;
-}
-.stage_2 {
-    background: rgb(102, 137, 189);
-    background-image: linear-gradient(rgba(102, 137, 189, 0), rgb(238, 121, 248));;
-}
-.stage_3 {
-    background: rgb(80, 107, 148);
-    background-image: linear-gradient(rgba(80, 107, 148, 0), rgb(248, 121, 199));;
-}
-.stage_4 {
-    background: rgb(58, 78, 107);
-    background-image: linear-gradient(rgba(58, 78, 107, 0), rgb(248, 80, 136));;
-}
-.stage_5 {
-    background: rgb(36, 48, 66);
-    background-image: linear-gradient(rgba(36, 48, 66, 0), rgb(5, 5, 5));;
-}
-
-#particles-js {
-  position: fixed; /*描画固定*/
-  z-index: -1; /*描画を一番下に*/
-  width: 100%;
+#moonBox {
   height: 100%;
-  background-color: transparent; /*背景色*/
-}
-
-#wrapper {
-  position: relative; /*描画を#particles-jsよりも上にするためposition:relative;を指定*/
-  z-index: 1; /*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
   width: 100%;
-  height: 100%;
+  animation: partialRotate 10000ms linear infinite;
+  animation-direction: alternate;
 }
-
