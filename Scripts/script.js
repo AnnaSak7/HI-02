@@ -45,6 +45,8 @@ function createNewDivWebPage(nr, dom, shnm) {
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
   var $newDiv = $('<div/>');
   $newDiv.attr('id', 'websiteBox' + nr);
+  $newDiv.attr('onmouseover', 'showDelete(true)');
+  $newDiv.attr('onmouseout', 'showDelete(false)');
 
   //ERROR HANDLING
   if(dom.includes("http://") || dom.includes("https://"))$newDiv.attr('onClick', `location.href='${dom}'`);
@@ -101,6 +103,7 @@ function hideModal(x) {
 
   document.getElementById("myModal" + x).style.display = 'none';
 }
+
 
 // CLOSES THE WINDOW WHEN USER CLICKS OUTSIDE THE MODAL
 window.onclick = function (event) {
