@@ -21,14 +21,18 @@ function newWebPage() {
     dom: websiteDOM.value,
     shortname: websiteShortName.value,
   };
-  //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
-  localStorage.setItem('website' + itemNr, JSON.stringify(website));
 
-  //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
-  createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
+  if(website.dom.includes(".")) {
+    //ADDING THE OBJECT TO LOCAL STORAGE, CHANING THE OBJECT TO A STRING THROUGH JSON.stringify
+    localStorage.setItem('website' + itemNr, JSON.stringify(website));
 
-  //MAKING SURE THAT THE LOCAL STORAGE ARRAY DOESNT OVERWRITE ANY PREVIOUS ITEMS IN THE ARRAY
-  itemNr++;
+    //CALLING THE CREATE NEW DIV FUNCTION AND SENDING THE VALUES WRITTEN IN THE INPUT BOXES
+    createNewDivWebPage(itemNr, websiteDOM.value, websiteShortName.value);
+
+    //MAKING SURE THAT THE LOCAL STORAGE ARRAY DOESNT OVERWRITE ANY PREVIOUS ITEMS IN THE ARRAY
+    itemNr++;
+  }
+  else {alert("Please write a valid DOM")}
 }
 
 //CREATING NEW DIVS FOR WEBSITE LINKS, GRABBING THE SENT NUMBER ID, DOMAIN NAME AND SHORT NAME
@@ -37,7 +41,11 @@ function createNewDivWebPage(nr, dom, shnm) {
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
   var $newDiv = $('<div/>');
   $newDiv.attr('id', 'websiteBox' + nr);
-  $newDiv.attr('onClick', `location.href='http://${dom}'`);
+
+  //ERROR HANDLING
+  if(dom.includes("http://") || dom.includes("https://"))$newDiv.attr('onClick', `location.href='${dom}'`);
+  else $newDiv.attr('onClick', `location.href='http://${dom}'`);
+
   $newDiv.attr('class', 'websiteBoxClass');
 
   //APPEND IMG TAG TO THE DIV TAG
@@ -58,13 +66,13 @@ function loadLocalWebpage() {
   //FOR LOOP TO GET ALL THE ITEMS INSIDE LOCAL STORAGE
   for (var i = 0; i < localStorage.length; i++) {
     //GETTING THE WEBSITE STRING AND CHANGING IT BACK INTO AN OBJECT THROUGH JSON.parse
-    var divAttr = JSON.parse(window.localStorage.getItem(Object.keys(localStorage)[i]));
+    divAttr = JSON.parse(window.localStorage.getItem(Object.keys(localStorage).sort()[i]));
 
     //CREATING NEW DIVS FOR EACH LOCAL STORAGE ITEM
-    createNewDivWebPage(Object.keys(localStorage)[i].replace('website',''), divAttr.dom, divAttr.shortname);
+    createNewDivWebPage(Object.keys(localStorage).sort()[i].replace('website',''), divAttr.dom, divAttr.shortname);
 
     //MAKING SURE IF WE ADD NEW ITEMS TO LOCAL STORAGE WE DONT OVERWRITE PREVIOUS OBJECTS BY SETTING THE NUMBER ID TO THE LAST "i" VALUE OF THE FOR LOOP +1
-    itemNr = i + 1;
+    itemNr = parseInt(Object.keys(localStorage).sort()[i].replace('website','')) + 1;
   }
 }
 
