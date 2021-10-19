@@ -137,6 +137,7 @@ header ul li a {
   }
   .websiteBoxClass:hover {
     background:rgba(0, 0, 0, 0.473);
+    cursor:pointer;
   }
     .shortNameBox {
       height:25%;
@@ -313,7 +314,6 @@ img {
     transform:translate(-50%,0);
     position:absolute;
     z-index:100;
-    transition:top 55s, left 55s;
 }
     #sunBox {
         height: 100%;
@@ -327,6 +327,7 @@ img {
     transform:translate(-50%,12%);
     position: absolute;
     z-index: 100;
+
 }
     #moonBox {
         height:100%;

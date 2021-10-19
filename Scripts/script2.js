@@ -1,6 +1,10 @@
 var stageNr = 0;
 var changeNr = 1;
 var today = new Date();
+var changeTime = false;
+var cHours;
+var cMinutes;
+var cSeconds;
 var time;
 var sunBox;
 var moonBox;
@@ -32,13 +36,22 @@ function toggleState() {
   console.log(time);
 }
 
+function bytTime() {
+  cHours = document.getElementById("cHours").value;
+  cMinutes = document.getElementById("cMinutes").value;
+  cSeconds = document.getElementById("cSeconds").value;
+  changeTime = true;
+
+
+}
+
 //CHANGE THE TIMER TO CURRENT TIME
 function setTime() {
-  today = new Date();
+  if(!changeTime)today = new Date();
+  if(changeTime)today = new Date(2021, 10, 19, cHours, cMinutes, cSeconds),   setSMPosition(today.getHours(), today.getMinutes());
 
   //IF A NEW MINUTE STARTS WE CHANGE THE SUN/MOON POSITION, SENDING THE CURRENT HOURS AND MINUTES TO THE FUNCTION
-  if (today.getSeconds() == 0)
-    setSMPosition(today.getHours(), today.getMinutes());
+  if (today.getSeconds() == 0) setSMPosition(today.getHours(), today.getMinutes()), backgroundColor();
 
   //ADD A 0 TO THE CURRENT HOURS/MINUTES/SECONDS AND THEN KEEP THE LAST TWO DIGITS OF THE STRING
   let currentHours = ('0' + today.getHours()).slice(-2);
@@ -70,10 +83,11 @@ function setSMPosition(hours, minutes) {
     sunBox.style.left = x_pos + '%';
     moonBox.style.bottom = '300%';
   }
-  if (hours >= 19 && hours < 7) {
+  if (hours >= 19 && hours < 24 || hours >= 0 && hours < 7) {
     moonBox.style.bottom = y_pos + 20 + '%';
     moonBox.style.left = x_pos + '%';
     sunBox.style.bottom = '300%';
+    console.log("tjo");
   }
 }
 
@@ -89,34 +103,45 @@ function toggleState() {
 
 //CHANGE THE BACKGROUND COLOR DEPENDING ON TIME OF DAY
 function backgroundColor() {
-  let hr = new Date().getHours();
+  
+  let hr = today.getHours();
   let background = document.getElementById('kroppen');
   let stars = document.getElementById('particles-js');
 
   //CHANGE THE BACKGROUND STATE DEPENDING ON CURRENT HOUR (EACH CASE IS BASED ON HOURS)
   switch (hr) {
     default:
-      background.classList.toggle('stage_0');
-      stars.classList.toggle('noStars');
+      background.className = '';
+      background.classList.add('stage_0');
+      stars.className = '';
+      stars.classList.add('noStars');
       break;
 
     case 17:
-      background.classList.toggle('stage_1');
-      stars.classList.toggle('noStars');
+      background.className = '';
+      background.classList.add('stage_1');
+      stars.className = '';
+      stars.classList.add('noStars');
       break;
 
     case 18:
-      background.classList.toggle('stage_2');
-      stars.classList.toggle('stars-inTheSky-halfopacity');
+      background.className = '';
+      background.classList.add('stage_2');
+      stars.className = ''
+      stars.classList.add('stars-inTheSky-halfopacity');
       break;
 
     case 19:
-      background.classList.toggle('stage_3');
-      stars.classList.toggle('stars-inTheSky-halfopacity');
+      background.className = '';
+      background.classList.add('stage_3');
+      stars.className = ''
+      stars.classList.add('stars-inTheSky-halfopacity');
       break;
 
     case 20:
-      background.classList.toggle('stage_4');
+      background.className = '';
+      background.classList.add('stage_4');
+      stars.className = ''
       break;
 
     case 21:
@@ -127,23 +152,33 @@ function backgroundColor() {
     case 2:
     case 3:
     case 4:
-      background.classList.toggle('stage_5');
+      background.className = '';
+      background.classList.add('stage_5');
+      stars.className = ''
       break;
     case 5:
-      background.classList.toggle('stage_4');
-      stars.classList.toggle('stars-inTheSky-halfopacity');
+      background.className = '';
+      background.classList.add('stage_4');
+      stars.className = ''
+      stars.classList.add('stars-inTheSky-halfopacity');
       break;
     case 6:
-      background.classList.toggle('stage_3');
-      stars.classList.toggle('noStars');
+      background.className = '';
+      background.classList.add('stage_3');
+      stars.className = ''
+      stars.classList.add('noStars');
       break;
     case 7:
-      background.classList.toggle('stage_2');
-      stars.classList.toggle('noStars');
+      background.className = '';
+      background.classList.add('stage_2');
+      stars.className = ''
+      stars.classList.add('noStars');
       break;
     case 8:
-      background.classList.toggle('stage_1');
-      stars.classList.toggle('noStars');
+      background.className = '';
+      background.classList.add('stage_1');
+      stars.className = ''
+      stars.classList.add('noStars');
       break;
   }
 }

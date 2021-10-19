@@ -40,6 +40,7 @@ function createNewDivWebPage(nr, dom, shnm) {
   //DEFINING NEW DIV THROUGH JQUERY
   //(<div id='websiteBox(nr)' onClick="location.href'http://(domain name)'" class="websiteBoxClass" style="left:(100px*amount of boxes)">(shortname)</div>)
   var $newDiv = $("<div/>");
+  $newDiv.attr("id", "websiteBox" + nr);
   $newDiv.attr("onClick", `location.href='http://${dom}'`);
   $newDiv.attr("class", "websiteBoxClass");
 
@@ -53,13 +54,7 @@ function createNewDivWebPage(nr, dom, shnm) {
         <div class="shortNameBox">${shnm}</div>`
   );
 
-  $newDiv
-    .css({
-      /*left: 25 + (125 * itemNr) + 'px',*/
-      //ADD THE NEW DIV TO THE BODY
-    })
-    .appendTo("#favWebBox")
-    .html();
+  $newDiv.appendTo("#favWebBox").html();
 }
 
 //LOAD ALL THE PAGES SAVED IN LOCAL STORAGE
@@ -86,9 +81,13 @@ function loadLocalWebpage() {
 const deleteBtn = document.querySelectorAll(".deleteBtn");
 console.log(deleteBtn);
 
+//REMOVE ICONS ON PRESSING THE "X" BUTTON
 function deleteIcons(nr) {
   window.localStorage.removeItem("website" + nr);
+  document.getElementById("websiteBox" + nr).remove();
+  event.stopPropagation();
 }
+
 // MODAL
 // USER CLICKS ON BUTTON OPEN MODAL
 function showModal() {
