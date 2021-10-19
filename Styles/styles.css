@@ -50,7 +50,8 @@ header ul li a {
 
 /* BUTTON */
 
-#myBtn, #myBtn2 {
+#myBtn,
+#myBtn2 {
   cursor: pointer;
   font-size: 20px;
   border: none;
@@ -64,7 +65,8 @@ header ul li a {
 
 /*BACKGROUND COLOUR ON BUTTON*/
 .navbar a:hover,
-#myBtn, #myBtn2, 
+#myBtn,
+#myBtn2,
 #myBtn:focus {
   background-color: rgb(39, 130, 172);
   border-radius: 20px;
@@ -90,9 +92,18 @@ header ul li a {
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
+  background-color: #e8f4fa;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 10px;
+
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  width: 500px;
+  height: 300px;
+  top: 200px;
+  left: calc(50% - 175px);
+  position: absolute;
 }
 
 /* CLOSE BUTTON */
@@ -247,10 +258,6 @@ img {
   100% {
     opacity: 1;
   }
-}
-
-.beam {
-  animation: scale 3s linear;
 }
 
 @keyframes spinSun {

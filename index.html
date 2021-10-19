@@ -31,18 +31,20 @@
         <nav>
           <ul>
             <li>
-              <button onclick="showModal(1)" id="myBtn">ADD DOMAIN</button>
+              <button onclick="showModal()" id="myBtn">ADD DOMAIN</button>
             </li>
-            <li><button onclick="showModal(2)" id="myBtn2">CHANGE TIME</button></li>
+            <li>
+              <button onclick="showModal()" id="myBtn2">CHANGE TIME</button>
+            </li>
           </ul>
         </nav>
         <div id="date"></div>
       </header>
 
       <!-- MODAL 1 -->
-      <div id="myModal1" class="modal">
+      <div id="myModal" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal(1)">&times;</span>
+          <span onclick="hideModal()">&times;</span>
           <p>sheeeeesh</p>
           DOM:<input id="websiteDOM" /> SHORT NAME:<input
             id="websiteShortname"
@@ -55,12 +57,13 @@
 
       <div id="myModal2" class="modal">
         <div class="modal-content">
-          <span onclick="hideModal(2)">&times;</span>
+          <span onclick="hideModal()">&times;</span>
           <p>sheeeeesh 2</p>
           H<input id="cHours" /> M<input id="cMinutes" /> S<input
-          id="cSeconds"
-        />
-        <button onclick="bytTime()">CHANGE TIME</button>
+            id="cSeconds"
+          />
+          <button onclick="bytTime()">CHANGE TIME</button>
+          <button onclick="newWebPage()">ADD NEW WEBPAGE</button>
         </div>
       </div>
 
@@ -144,8 +147,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(181.5 177.5) rotate(90) scale(99.5)"
             >
-              <stop stop-color="#E4C9AF" />
-              <stop offset="1" stop-color="#E08E41" />
+              <stop stop-color="#FDFFA2" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint1_radial_31:98"
@@ -155,8 +158,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(101.606 54.5212) rotate(58.62) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint2_radial_31:98"
@@ -166,8 +169,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(47.7563 106.392) rotate(35.3423) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint3_radial_31:98"
@@ -177,8 +180,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(33.75 178) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint4_radial_31:98"
@@ -188,8 +191,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(57.5214 254.205) rotate(-34.3396) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint5_radial_31:98"
@@ -199,8 +202,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(106.129 302.554) rotate(-56.0801) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint6_radial_31:98"
@@ -210,8 +213,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(182 321.25) rotate(-90) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint7_radial_31:98"
@@ -221,8 +224,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(259.824 302.734) rotate(-121.708) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint8_radial_31:98"
@@ -232,8 +235,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(309.766 251.877) rotate(-156.244) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint9_radial_31:98"
@@ -243,8 +246,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(325.25 178) rotate(-180) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint10_radial_31:98"
@@ -254,8 +257,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(309.65 110.12) rotate(157.921) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint11_radial_31:98"
@@ -265,8 +268,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(260.391 56.6387) rotate(123.004) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
             <radialGradient
               id="paint12_radial_31:98"
@@ -276,8 +279,8 @@
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(182 33.75) rotate(90) scale(33.25 17)"
             >
-              <stop stop-color="#FFEBD8" />
-              <stop offset="1" stop-color="#E1A974" />
+              <stop stop-color="#FDFFD1" />
+              <stop offset="1" stop-color="#E0B441" />
             </radialGradient>
           </defs>
         </svg>
