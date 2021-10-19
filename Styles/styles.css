@@ -61,7 +61,7 @@ header ul li a {
   margin: 0px 0;
   border-radius: 18px;
   transition: color 250ms ease-in-out,
-  background 350ms cubic-bezier(0.26, 0.11, 0.26, 1);
+    background 350ms cubic-bezier(0.26, 0.11, 0.26, 1);
 }
 
 /*BACKGROUND COLOUR ON BUTTON*/
@@ -92,9 +92,18 @@ header ul li a {
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
+  background-color: #e8f4fa;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 10px;
+
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  width: 500px;
+  height: 300px;
+  top: 200px;
+  left: calc(50% - 175px);
+  position: absolute;
 }
 
 /* CLOSE BUTTON */
@@ -249,10 +258,6 @@ img {
   100% {
     opacity: 1;
   }
-}
-
-.beam {
-  animation: scale 3s linear;
 }
 
 @keyframes spinSun {
